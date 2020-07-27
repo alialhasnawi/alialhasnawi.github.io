@@ -11,29 +11,46 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
   var whiteKeys = document.getElementsByClassName('white-key');
   var blackKeys = document.getElementsByClassName('black-key');
+  var ness = document.getElementsByClassName('sans-gaming');
+
   var gaming = 0;
 
   async function attack() {
+    if (gaming === 4) {
+      for (var i = 0; i < ness.length; i++) {
+        ness[i].style.animationPlayState = 'running';
+      }
+    } else if (gaming === 42) {
+      for (var i = 0; i < whiteKeys.length; i++) {
+        whiteKeys[i].style.animationPlayState = 'running';
+      }
+
+      for (var i = 0; i < blackKeys.length; i++) {
+        blackKeys[i].style.animationPlayState = 'running';
+      }
+    }
+
     await Tone.start();
 
-    console.log('pog');
+    console.log(gaming);
     synth.triggerAttack(staff[gaming], '+0', 0.1);
     gaming++;
   }
 
   function release() {
-    console.log('pog');
     synth.triggerRelease('4n');
   }
 
   for (var i = 0; i < whiteKeys.length; i++) {
     whiteKeys[i].addEventListener('mousedown', attack);
     whiteKeys[i].addEventListener('mouseup', release);
+    whiteKeys[i].innerHTML += '<img class="sans-gaming" src="snans.png" draggable="false">';
   }
 
   for (var i = 0; i < blackKeys.length; i++) {
     blackKeys[i].addEventListener('mousedown', attack);
     blackKeys[i].addEventListener('mouseup', release);
+    blackKeys[i].innerHTML += '<img class="sans-gaming" src="snans.png" draggable="false">';
   }
 
   console.log('HIYA');
