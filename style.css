@@ -1,16 +1,155 @@
+@font-face {
+  font-family: undertale;
+  src: url(sans-undertale.ttf);
+}
+
 body {
   width: 100%;
+  height: 100%;
+  overflow: hidden;
   margin: 0px;
+  justify-content: center;
+  animation-name: darken;
+  animation-duration: 3s;
+  animation-play-state: paused;
+  animation-fill-mode: forwards;
+  font-family: undertale;
+  color: #FFFFFF;
+  user-select: none;
+}
+
+* {
+  cursor: inherit;
+  opacity: inherit;
+}
+
+#completed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 9% auto;
+  color: #FFFFFF;
+}
+
+#first-end {
+  font-size: 40px;
+}
+
+#timer {
+  font-size: 90px;
+}
+
+#second-end {
+  font-size: 50px;
+}
+
+#extra {
+  font-size: 20px;
+}
+
+.heart {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  top: 0px;
+  left: 0px;
+  width: 32px;
+  height: 32px;
+  background-image: url("heart.png");
+  display: none;
+  animation-name: return-home;
+  animation-duration: 4s;
+  animation-play-state: paused;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+@keyframes return-home {
+  100% {
+    top: 50%;
+    left: 50%;
+  }
+}
+
+.text-background {
+  position: fixed;
+  top: 0px;
+  margin: 0px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  padding: 30px 30px 30px 30px;
+  color: #FFFFFF;
+  font-size: 25px;
 }
 
 .board {
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: relative;
   top: 50%;
-  width: 96%;
-  height: 30%;
-  margin: 0% 2% 0% 2%;
+  width: 94%;
+  height: 35%;
+  margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  top: 88%;
+  width: 94%;
+  height: 9%;
+  margin: 0 3% 0 3%;
+  animation-name: rise-up;
+  animation-duration: 3s;
+  animation-play-state: paused;
+  animation-fill-mode: forwards;
+}
+
+.gamer {
+  position: absolute;
+  bottom: 50%;
+  height: 50%;
+  width: auto;
+  opacity: 0.7;
+  animation-name: slide;
+  animation-duration: 3s;
+  animation-play-state: paused;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+@keyframes slide {
+  0% {
+    left: -3000px;
+  }
+
+  100% {
+    left: 3000px;
+  }
+}
+
+@keyframes rise-up {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 15%;
+  border: 5px solid #F87F2C;
+  color: #F87F2C;
+  font-size: 60px;
 }
 
 .octave {
@@ -21,7 +160,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  height: 200px;
+  height: 70%;
   width: 100%;
 }
 
@@ -30,7 +169,8 @@ body {
   width: 10%;
   height: 100%;
   z-index: 3;
-  padding: 140px 0px 20px 0px;
+  padding: 45% 0px 2% 0px;
+  font-family: undertale;
   font-size: 12px;
   outline: none;
   border: 4px solid #363636;
@@ -65,8 +205,8 @@ body {
   flex-direction: row;
   justify-content: space-around;
   position: relative;
-  top: -200px;
-  height: 300px;
+  top: -70%;
+  height: 100%;
   width: 100%;
 }
 
@@ -75,7 +215,8 @@ body {
   width: 100%;
   height: 100%;
   z-index: 2;
-  padding: 220px 0px 12px 0px;
+  padding: 65% 0px 7px 0px;
+  font-family: undertale;
   font-size: 15px;
   outline: none;
   border: 2px solid #DDD;
@@ -97,7 +238,7 @@ body {
 .sans-gaming {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: auto;
   user-select: none;
   animation-name: appear-gaming;
   animation-duration: 14s;
@@ -136,9 +277,19 @@ body {
   }
 }
 
+@keyframes darken {
+  0% {
+    background-color: #FFFFFF;
+  }
+
+  100% {
+    background-color: #000000;
+    )
+  }
+}
+
 #screen-alert {
   z-index: -99;
-  font-family: fantasy;
   font-size: 20;
   width: 100%;
   height: 250px;
