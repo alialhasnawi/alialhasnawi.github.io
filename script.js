@@ -59,8 +59,9 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
       if (mouseY < (0.5 * window.innerHeight + 21)) {
         mouseY = 0.5 * window.innerHeight + 21;
-      } else if (mouseY > (0.5 * window.innerHeight + 300 - 25)) {
-        mouseY = 0.85 * window.innerHeight - 14;
+      } else if (mouseY > (0.85 * window.innerHeight - 12)) {
+        mouseY = 0.85 * window.innerHeight - 12;
+        console.log(mouseY);
       }
 
       heart.style.left = (mouseX - 16).toString() + 'px';
@@ -180,9 +181,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
           heart.style.display = 'none';
           window.clearInterval(tempInterval);
 
-          window.setTimeout(function() {
-            new Audio('f.mp3').play();
-          }, 1000);
+          new Audio('f.mp3').play();
 
           window.setTimeout(function() {
             document.getElementById('first-end').innerHTML = 'ok u can close me now...';
@@ -220,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
     } else if (gaming === (1001 + endText[0].length + endText[1].length)) {
       window.setTimeout(function() {
         document.getElementById('extra').innerHTML = 'might as well wait until the song finishes uwu';
-      }, 4000);
+      }, 3000);
 
       gaming++;
       window.clearInterval(endLoop);
