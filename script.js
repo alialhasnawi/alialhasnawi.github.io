@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
         mouseY = 0.5 * window.innerHeight + 21;
       } else if (mouseY > (0.85 * window.innerHeight - 12)) {
         mouseY = 0.85 * window.innerHeight - 12;
-        console.log(mouseY);
       }
 
       heart.style.left = (mouseX - 16).toString() + 'px';
