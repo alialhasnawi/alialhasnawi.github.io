@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
     baseUrl: ""
   }).toDestination();
 
-  var voice = new Audio('voice.wav');
+  var voice = new Audio('res/voice.wav');
   voice.volume = 0.4;
 
   var whiteKeys = document.getElementsByClassName('white-key');
@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', function(e) {
         blackKeys[i].style.animationPlayState = 'running';
       }
     } else if (gaming > 79 && gaming < 108) {
-      ness[naturals[gaming - 80]].src = "snens.png";
+      ness[naturals[gaming - 80]].src = "res/snens.png";
     } else if (gaming > 107 && gaming < 128) {
-      ness[sharps[gaming - 108]].src = "snens.png";
+      ness[sharps[gaming - 108]].src = "res/snens.png";
     } else if (gaming === 130) {
       for (var i = 0; i < whiteKeys.length; i++) {
         whiteKeys[i].removeEventListener('mousedown', attack);
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
       setTimeout(function() {
         window.clearInterval(sansLoop);
 
-        var determination = new Audio('ending.mp3');
+        var determination = new Audio('res/ending.mp3');
         determination.volume = 0.2;
         determination.play();
 
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
           heart.style.display = 'none';
           window.clearInterval(tempInterval);
 
-          new Audio('f.mp3').play();
+          new Audio('res/f.mp3').play();
 
           window.setTimeout(function() {
             document.getElementById('first-end').innerHTML = 'ok u can close me now...';
@@ -228,13 +228,13 @@ document.addEventListener('DOMContentLoaded', function(e) {
   for (var i = 0; i < whiteKeys.length; i++) {
     whiteKeys[i].addEventListener('mousedown', attack);
     whiteKeys[i].addEventListener('mouseup', release);
-    whiteKeys[i].innerHTML += '<img class="sans-gaming" src="snans.png" draggable="false">';
+    whiteKeys[i].innerHTML += '<img class="sans-gaming" src="res/snans.png" draggable="false">';
   }
 
   for (var i = 0; i < blackKeys.length; i++) {
     blackKeys[i].addEventListener('mousedown', attack);
     blackKeys[i].addEventListener('mouseup', release);
-    blackKeys[i].innerHTML += '<img class="sans-gaming" src="snans.png" draggable="false">';
+    blackKeys[i].innerHTML += '<img class="sans-gaming" src="res/snans.png" draggable="false">';
   }
 
 });
