@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
+<!--thanks to rogue-ranger https://www.deviantart.com/rogue-ranger on deviantart for the dialogue template <3-->
 
-<html>
+<html lang="en" dir="ltr">
 
   <head>
     <meta charset="utf-8">
@@ -11,9 +12,28 @@
   </head>
 
   <body>
-    <p>
 
-    </p>
+    <div class="container">
+
+      <div class="textbox-container">
+        <textarea placeholder="i wanna say..." id="inText"></textarea>
+      </div>
+      <div class="slider-container">
+        <input type="range" min="0" max="2" value="1" step="0.05" class="slider" id="rateRange">
+      </div>
+      <div class="button-container">
+        <button onclick="playClip()">playin</button>
+      </div>
+
+    </div>
+
+    <div class="dialogue">
+      <img id="dialogue-box" src="res/dialogue.png" alt="Animal Crossing New Leaf dialogue box">
+      <div id="dialogue-text"></div>
+    </div>
+
+    <p></p>
+
   </body>
 
 

@@ -1,0 +1,92 @@
+@font-face {
+  font-family: nunito;
+  src: url("res/nunito.ttf");
+}
+
+* {
+  overflow: hidden;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding-top: 15px;
+}
+
+#dialogue-text {
+  height: 100%;
+  width: 70%;
+  position: absolute;
+  display: flex;
+  padding: 10% 12% 10% 12%;
+  text-align: left;
+  /*word-wrap: break-word;*/
+  /*word-break: break-all;*/
+  font-family: nunito;
+  font-size: 40px;
+  color: #FFFFFF;
+}
+
+#dialogue-box {
+  width: 100%;
+}
+
+.dialogue {
+  height: 50%;
+  width: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  height: 40%;
+  width: 80%;
+}
+
+.textbox-container {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea {
+  height: 100%;
+  width: 90%;
+  resize: none;
+  padding: 15px;
+  font-size: 15px;
+}
+
+.slider-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+}
+
+.slider {
+  width: 70%;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  width: 10%;
+}
