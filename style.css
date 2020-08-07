@@ -3,6 +3,11 @@
   src: url("piano/res/sans-undertale.ttf");
 }
 
+@font-face {
+  font-family: nunito;
+  src: url("animal/res/nunito.ttf");
+}
+
 * {
   user-select: none;
 }
@@ -22,7 +27,8 @@ body {
 
 img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  border-radius: 8px;
 }
 
 a {
@@ -75,6 +81,7 @@ a {
   align-items: center;
   background-color: #FFFFFF;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .page-title {
