@@ -1,25 +1,36 @@
 //constants of accepted sound files and filepath main directory
 const phonemes = ['a', 'e', 'i', 'o', 'u', 'b', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z', 'C', 'S', 'T', 'U'];
 const voicePath = 'res/voice/';
-
-const animalRegX = /wh|ph|ch|sh|th|ss|oo|./gi;
-
 const replacements = {
-  '.': 4,
-  ',': 4,
-  '!': 4,
-  '?': 4,
-  '0': 4,
-  '1': 3,
-  '2': 2,
-  '3': 3,
-  '4': 3,
-  '5': 4,
-  '6': 3,
-  '7': 5,
-  '8': 3,
-  '9': 4,
+  'wh': 'w',
+  'ph': 'f',
+  'ch': 'C',
+  'sh': 'S',
+  'th': 'T',
+  'ss': 's',
+  'oo': 'U',
+  'c': 'k',
+  'q': 'k',
+  '\.': '      ',
+  ',': '      ',
+  '!': '      ',
+  '\?': '      ',
+  '0': 'zero',
+  '1': 'wan',
+  '2': 'tU',
+  '3': 'Tri',
+  '4': 'for',
+  '5': 'fayv',
+  '6': 'six',
+  '7': 'seven',
+  '8': 'eyt',
+  '9': 'nayn'
 };
+
+const animalReg = /sh|./gi;
+const testingtesting = 'The sheep is cool!';
+
+console.log(testingtesting.match(animalReg));
 
 // web audio api
 var audioContext;
@@ -27,40 +38,31 @@ var sounds = [];
 
 // html DOM variables
 var outTag;
-var pitchSliderTag;
-var speedSliderTag;
+var sliderTag;
 var inTag;
 
 // init variables for speak()
 var speaking = false;
-var speakingInterval = 'CLEARED';
-var pitchRate = 1.8;
-var speedRate = 70;
+var speakingIntervals = [];
+var globalRate = 1.8;
 
 document.addEventListener('DOMContentLoaded', function(e) {
   outTag = document.getElementById('dialogue-text');
-  pitchSliderTag = document.getElementById('rateRange');
-  speedSliderTag = document.getElementById('speedRange');
+  sliderTag = document.getElementById('rateRange');
   inTag = document.getElementById('inText');
 
-  pitchSliderTag.oninput = function() {
-    pitchRate = 0.4 * Math.pow(4, Number(this.value)) + 0.2;
+  sliderTag.oninput = function() {
+    globalRate = 0.4 * Math.pow(4, this.value) + 0.2;
   }
 
-  /*speedSliderTag.oninput = function() {
-    speedRate = (250 / (Number(this.value) + 0.7)) - 80;
-  }*/
+  loadInventory();
 
   document.addEventListener('click', init);
 });
 
-// inits context
 function init() {
   // inits context on click
   audioContext = new AudioContext();
-
-  // loads sounds
-  loadInventory();
 
   // prevents duplicate inits
   document.removeEventListener('click', init);
@@ -68,55 +70,57 @@ function init() {
 
 function playClip() {
   shut();
-
   if (inTag.value !== '') {
-    if (inTag.value.length > 80) {
-      console.log('YES');
-      outTag.style.fontSize = Math.round(40 - 0.07 * inTag.value.length).toString() + 'px';
-    }
-
-    speakingInterval = speak(inTag.value, speedRate, pitchRate);
+    speak(inTag.value, 70, globalRate);
   }
 }
 
-// closes speaking intervals and refreshes dialogue box
 function shut() {
-  if (speakingInterval !== 'CLEARED') {
-    clearInterval(speakingInterval);
-  }
+  speakingIntervals.forEach((item, i) => {
+    clearInterval(item);
+  });
 
-  outTag.innerHTML = '';
   speaking = false;
-  speakingInterval = 'CLEARED';
+  speakingIntervals = [];
 }
 
 function speak(text, time, rate, ignore = false) {
   if (!speaking || ignore) {
     speaking = true;
+    var str = toAnimal(text);
 
-    var animalTxt = toAnimal(text);
-    var arrayTxt = transcribe(text);
-
-    var length = animalTxt.length;
+    var length = str.length;
     var originalLength = text.length;
 
     var speakingID = setLimitedInterval(function(i) {
-      if (phonemes.includes(animalTxt[i])) {
-        play(sounds[animalTxt[i]], pitchRate);
-      } else if (animalTxt[i] == ' ') {
-        // nothing lol
+      if (phonemes.includes(str[i])) {
+        play(sounds[str[i]], globalRate);
+      } else if (str[i] == ' ') {
+        // nothing
       } else {
-        play(sounds['b'], pitchRate);
+        play(sounds['b'], globalRate);
       }
-
-      outTag.innerHTML += arrayTxt[i];
-
+      i++;
     }, time, length, null, function() {
       speaking = false
     });
 
-    return speakingID;
+
+    var typingID = setLimitedInterval(function(i) {
+      outTag.innerHTML += text[i];
+    }, Math.round((length / originalLength) * time), originalLength, function() {
+      outTag.innerHTML = '';
+    });
+
+    speakingIntervals.push(speakingID, typingID);
   }
+
+  return {
+    'text': text,
+    'time': time,
+    'rate': rate,
+    'ignore': ignore
+  };
 }
 
 function setLimitedInterval(func, time, iterations, beginning = null, ending = null) {
@@ -142,7 +146,7 @@ function setLimitedInterval(func, time, iterations, beginning = null, ending = n
 }
 
 function toAnimal(str) {
-  var animal = str.toLowerCase()
+  return str.toLowerCase()
     .replace(/wh/g, 'w')
     .replace(/ph/g, 'f')
     .replace(/ch/g, 'C')
@@ -152,10 +156,10 @@ function toAnimal(str) {
     .replace(/oo/g, 'U')
     .replace(/c/g, 'k')
     .replace(/q/g, 'k')
-    .replace(/\./g, '    ')
-    .replace(/,/g, '    ')
-    .replace(/!/g, '    ')
-    .replace(/\?/g, '    ')
+    .replace(/\./g, '      ')
+    .replace(/,/g, '      ')
+    .replace(/!/g, '      ')
+    .replace(/\?/g, '      ')
     .replace(/0/g, 'zero')
     .replace(/1/g, 'wan')
     .replace(/2/g, 'tU')
@@ -166,27 +170,9 @@ function toAnimal(str) {
     .replace(/7/g, 'seven')
     .replace(/8/g, 'eyt')
     .replace(/9/g, 'nayn');
-
-  return animal;
 }
 
-function transcribe(str) {
-  var array = str.match(animalRegX);
 
-  var length = array.length;
-
-  for (var i = length - 1; i >= 0; i--) {
-    if (replacements[array[i]] !== undefined) {
-      for (var j = 0; j < replacements[array[i]] - 1; j++) {
-        array.splice(i + 1, 0, '');
-      }
-    }
-  }
-
-  return array;
-}
-
-// loads .ogg files
 function loadInventory() {
   phonemes.forEach((item, index) => {
     var file;

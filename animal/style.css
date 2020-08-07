@@ -5,6 +5,7 @@
 
 * {
   overflow: hidden;
+  font-family: nunito;
 }
 
 html {
@@ -14,10 +15,9 @@ html {
 body {
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin: 0px;
-  padding-top: 15px;
 }
 
 #dialogue-text {
@@ -25,36 +25,81 @@ body {
   width: 70%;
   position: absolute;
   display: flex;
-  padding: 10% 12% 10% 12%;
+  padding: 12% 12% 10% 12%;
+  background: none;
   text-align: left;
-  /*word-wrap: break-word;*/
-  /*word-break: break-all;*/
-  font-family: nunito;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   font-size: 40px;
   color: #FFFFFF;
 }
 
+#dialogue-name {
+  height: 6%;
+  width: 25%;
+  position: absolute;
+  left: 13.5%;
+  top: 8.5%;
+  display: flex;
+  padding: 0%;
+  background: none;
+  outline: none;
+  border: none;
+  text-align: left;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-size: 32px;
+  color: #FFFFFF;
+}
+
+#dialogue-name::placeholder {
+  color: #FFFFFF;
+  opacity: 0.8;
+}
+
 #dialogue-box {
   width: 100%;
+  margin: 20px;
 }
 
 .dialogue {
-  height: 50%;
-  width: 80%;
+  height: 100%;
+  width: 60%;
   position: relative;
   display: flex;
+  bottom: 10px;
+  padding: 40px;
   flex-direction: column;
   align-items: center;
 }
 
+.background-img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.1;
+  z-index: -10;
+}
+
 .container {
-  height: 40%;
-  width: 80%;
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+  border-right: 5px solid #d1e3f0;
+  background-color: #EEF3FF;
 }
 
 .textbox-container {
   height: 60%;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,23 +109,53 @@ textarea {
   height: 100%;
   width: 90%;
   resize: none;
-  padding: 15px;
-  font-size: 15px;
+  overflow-y: scroll;
+  padding: 20px 20px 20px 20px;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  font-size: 20px;
+}
+
+.text-container {
+  display: flex;
+  text-align: center;
+  padding: 25px;
+  font-size: 20px;
 }
 
 .slider-container {
-  width: 100%;
+  width: 90%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
   align-items: center;
-  padding: 25px;
+  padding: 25px 25px 25px 25px;
 }
 
 .slider {
   width: 70%;
+  appearance: none;
+  padding: 3px;
+  height: 15px;
+  background: #FFFFFF;
+  outline: none;
+  border-radius: 15px;
+  opacity: 0.7;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #33AA99;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .button-container {
+  height: 7%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -88,5 +163,22 @@ textarea {
 }
 
 button {
-  width: 10%;
+  height: 100%;
+  width: 30%;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: #AAEEDD;
+  color: #003355;
+}
+
+button:active {
+  background-color: #09DDCC;
+  color: #FFFFFF;
+  transform: scale(0.99);
+}
+
+button:hover {
+  cursor: pointer;
 }

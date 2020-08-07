@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
   const synth = new Tone.Sampler({
     urls: {
       "D5": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/guitar-electric/C4.mp3",
+      //"B4": "../animal/res/voice/b.ogg",
     },
     baseUrl: ""
   }).toDestination();
