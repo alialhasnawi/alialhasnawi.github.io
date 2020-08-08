@@ -21,16 +21,17 @@ body {
 }
 
 #dialogue-text {
-  height: 100%;
-  width: 70%;
+  height: 75%;
+  width: 75%;
   position: absolute;
   display: flex;
-  padding: 12% 12% 10% 12%;
+  top: 26%;
+  padding: 0px;
   background: none;
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-size: 40px;
+  font-size: 2.5vw;
   color: #FFFFFF;
 }
 
@@ -39,7 +40,7 @@ body {
   width: 25%;
   position: absolute;
   left: 9%;
-  top: 7.8%;
+  top: 4.5%;
   display: flex;
   padding: 0%;
   background: none;
@@ -49,7 +50,7 @@ body {
   vertical-align: middle;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-size: 32px;
+  font-size: 2vw;
   color: #FFFFFF;
 }
 
@@ -60,7 +61,8 @@ body {
 
 #dialogue-box {
   width: 100%;
-  margin: 20px;
+  height: auto;
+  margin: 0px;
 }
 
 .dialogue {
@@ -68,8 +70,19 @@ body {
   width: 60%;
   position: relative;
   display: flex;
-  bottom: 10px;
-  margin: 5%;
+  margin: 0px;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dialogue-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
   flex-direction: column;
   align-items: center;
 }
@@ -114,14 +127,14 @@ textarea {
   border: none;
   border-radius: 25px;
   outline: none;
-  font-size: 32px;
+  font-size: 2vw;
 }
 
 .text-container {
   display: flex;
   text-align: center;
   padding: 25px;
-  font-size: 28px;
+  font-size: 2vw;
 }
 
 .slider-container {
@@ -138,7 +151,7 @@ textarea {
   width: 70%;
   appearance: none;
   padding: 3px;
-  height: 15px;
+  height: 15%;
   background: #FFFFFF;
   outline: none;
   border-radius: 15px;
@@ -150,7 +163,7 @@ textarea {
   width: 15px;
   height: 15px;
   background: #33AA99;
-  border-radius: 15px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -165,7 +178,7 @@ textarea {
 button {
   height: 100%;
   width: 40%;
-  font-size: 24px;
+  font-size: 2vw;
   outline: none;
   border: none;
   border-radius: 10px;
@@ -183,32 +196,28 @@ button:hover {
   cursor: pointer;
 }
 
-@media (max-width: 1000px) {
-  * {
-    display: none;
+@media (orientation: portrait) {
+  body {
+    flex-direction: column;
   }
-}
 
-@media (max-width: 1200px) {
-  #dialogue-name {
-    font-size: 26px;
+  .dialogue {
+    height: 30%;
+    width: 100%;
   }
-}
 
-@media (min-width: 1500px) {
-  #dialogue-name {
-    font-size: 36px;
+  .container {
+    height: 70%;
+    width: 100%;
+    border-right: none;
+    border-bottom: 15px solid #d1e3f0;
   }
-}
 
-@media (min-width: 1700px) {
-  #dialogue-name {
-    font-size: 42px;
+  .background-img {
+    top: 50%;
   }
-}
 
-@media (min-width: 1900px) {
-  #dialogue-name {
-    font-size: 48px;
+  button, textarea, .text-container, #dialogue-name {
+    font-size: 5vw;
   }
 }

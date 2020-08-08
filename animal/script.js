@@ -70,12 +70,14 @@ function playClip() {
   shut();
 
   if (inTag.value !== '') {
-    if (inTag.value.length > 80) {
-      console.log('YES');
-      outTag.style.fontSize = Math.round(40 - 0.07 * inTag.value.length).toString() + 'px';
+    if (inTag.value.length > 90) {
+      outTag.style.fontSize = (2.5 * Math.pow(0.997, inTag.value.length - 90)).toFixed(1).toString() + 'vw';
+    } else {
+      outTag.style.fontSize = '2.5vw';
     }
 
-    speakingInterval = speak(inTag.value, speedRate, pitchRate);
+    //speakingInterval = speak(inTag.value, speedRate, pitchRate);
+    speakingInterval = speak(inTag.value, 20, pitchRate);
   }
 }
 
