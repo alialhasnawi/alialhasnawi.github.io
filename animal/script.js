@@ -37,14 +37,28 @@ var speakingInterval = 'CLEARED';
 var pitchRate = 1.8;
 var speedRate = 70;
 
+var specialState = 'none';
+
 document.addEventListener('DOMContentLoaded', function(e) {
   outTag = document.getElementById('dialogue-text');
   pitchSliderTag = document.getElementById('rateRange');
   speedSliderTag = document.getElementById('speedRange');
   inTag = document.getElementById('inText');
 
+  nameTag = document.getElementById('dialogue-name');
+
   pitchSliderTag.oninput = function() {
     pitchRate = 0.4 * Math.pow(4, Number(this.value)) + 0.2;
+  }
+
+  nameTag.oninput = function() {
+    switch (this.value.toLowerCase().trim()) {
+      case 'sans':
+        specialState = 'sans';
+        break;
+      default:
+        specialState = 'none';
+    }
   }
 
   /*speedSliderTag.oninput = function() {
@@ -71,13 +85,14 @@ function playClip() {
 
   if (inTag.value !== '') {
     if (inTag.value.length > 90) {
-      outTag.style.fontSize = (2.5 * Math.pow(0.997, inTag.value.length - 90)).toFixed(1).toString() + 'vw';
+      //outTag.style.fontSize = (2.5 * Math.pow(0.997, inTag.value.length - 90)).toFixed(1).toString() + 'vw';
+      outTag.style.fontSize = (3 * Math.pow(0.993, inTag.value.length) + 0.9).toFixed(1).toString() + 'vw';
     } else {
       outTag.style.fontSize = '2.5vw';
     }
 
     speakingInterval = speak(inTag.value, speedRate, pitchRate);
-    //speakingInterval = speak(inTag.value, 20, pitchRate);
+    //speakingInterval = speak(inTag.value, 5, pitchRate);
   }
 }
 
@@ -103,12 +118,18 @@ function speak(text, time, rate, ignore = false) {
     var originalLength = text.length;
 
     var speakingID = setLimitedInterval(function(i) {
-      if (phonemes.includes(animalTxt[i])) {
-        play(sounds[animalTxt[i]], pitchRate);
-      } else if (animalTxt[i] == ' ') {
-        // nothing lol
+      if (specialState === 'sans') {
+        if (animalTxt[i] !== ' ') {
+          play(sounds['sans'], 1);
+        }
       } else {
-        play(sounds['b'], pitchRate);
+        if (phonemes.includes(animalTxt[i])) {
+          play(sounds[animalTxt[i]], pitchRate);
+        } else if (animalTxt[i] == ' ') {
+          // nothing lol
+        } else {
+          play(sounds['b'], pitchRate);
+        }
       }
 
       outTag.innerHTML += arrayTxt[i];
@@ -212,6 +233,8 @@ function loadInventory() {
 
     addSound(voicePath + file, item);
   });
+
+  addSound(voicePath + 'sans.wav', 'sans');
 }
 
 function play(buffer, rate) {

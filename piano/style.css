@@ -36,19 +36,19 @@ body {
 }
 
 #first-end {
-  font-size: 40px;
+  font-size: 3vw;
 }
 
 #timer {
-  font-size: 90px;
+  font-size: 6vw;
 }
 
 #second-end {
-  font-size: 50px;
+  font-size: 2.5vw;
 }
 
 #extra {
-  font-size: 20px;
+  font-size: 1.2vw;
 }
 
 .heart {
@@ -83,7 +83,7 @@ body {
   height: 100%;
   padding: 30px 30px 30px 30px;
   color: #FFFFFF;
-  font-size: 25px;
+  font-size: 1.85vw;
 }
 
 .board {
@@ -152,7 +152,7 @@ body {
   width: 15%;
   border: 5px solid #F87F2C;
   color: #F87F2C;
-  font-size: 60px;
+  font-size: 4vw;
 }
 
 .octave {
@@ -179,7 +179,7 @@ body {
   flex-direction: column;
   align-content: flex-end;
   font-family: undertale;
-  font-size: 12px;
+  font-size: 0.8vw;
   outline: none;
   border: 4px solid #363636;
   border-radius: 2px;
@@ -230,7 +230,7 @@ body {
   flex-direction: column;
   align-content: flex-end;
   font-family: undertale;
-  font-size: 15px;
+  font-size: 1vw;
   outline: none;
   border: 2px solid #DDD;
   border-radius: 2px;
@@ -303,22 +303,22 @@ body {
 
 #screen-alert {
   z-index: -99;
-  font-size: 20;
+  font-size: 8vw;
   width: 100%;
-  height: 250px;
+  height: 100%;
   margin: 0px;
-  padding: 70px 30% 70px 30%;
-  justify-content: center;
+  text-align: center;
+  padding-top: 40%;
   position: fixed;
-  top: 40%;
+  top: 0%;
   background-color: transparent;
   color: transparent;
 }
 
-@media (max-width: 1000px) {
+@media (orientation: portrait) {
   #screen-alert {
     z-index: 99;
-    background-color: #FF00FF;
+    background-color: #EEEEFF;
     color: black;
   }
 }

@@ -39,14 +39,14 @@ body {
   height: 18%;
   width: 25%;
   position: absolute;
-  left: 9%;
-  top: 4.5%;
+  left: 7.5%;
+  top: 3.5%;
   display: flex;
   padding: 0%;
   background: none;
   outline: none;
   border: none;
-  text-align: left;
+  text-align: center;
   vertical-align: middle;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -130,6 +130,11 @@ textarea {
   font-size: 2vw;
 }
 
+textarea::placeholder {
+  color: #000000;
+  opacity: 0.3;
+}
+
 .text-container {
   display: flex;
   text-align: center;
@@ -144,26 +149,28 @@ textarea {
   align-content: center;
   justify-content: center;
   align-items: center;
-  padding: 25px 25px 25px 25px;
+  padding: 3%;
 }
 
 .slider {
   width: 70%;
   appearance: none;
   padding: 3px;
-  height: 15%;
+  height: 18%;
   background: #FFFFFF;
   outline: none;
+  border: 3px solid #d1e3f0;
   border-radius: 15px;
   opacity: 0.7;
+  padding: 5px;
 }
 
 .slider::-webkit-slider-thumb {
   appearance: none;
-  width: 15px;
-  height: 15px;
+  width: 25px;
+  height: 25px;
   background: #33AA99;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
 }
 
@@ -173,6 +180,7 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5%;
 }
 
 button {
@@ -215,6 +223,10 @@ button:hover {
 
   .background-img {
     top: 50%;
+  }
+
+  .button-container {
+    height: 10%;
   }
 
   button, textarea, .text-container, #dialogue-name {

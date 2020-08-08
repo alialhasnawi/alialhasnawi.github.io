@@ -8,6 +8,14 @@
   src: url("animal/res/nunito.ttf");
 }
 
+.undertale-font {
+  font-family: undertale;
+}
+
+.animal-font {
+  font-family: nunito;
+}
+
 * {
   user-select: none;
 }
@@ -38,7 +46,7 @@ a {
 .banner {
   display: flex;
   justify-content: center;
-  font-size: 48px;
+  font-size: 2.5vw;
   width 100%;
   margin: 0px;
   padding: 20px;
@@ -48,6 +56,7 @@ a {
 .menu {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
   padding: 1%;
 }
 
@@ -62,7 +71,7 @@ a {
 
 .page {
   overflow: hidden;
-  height: 200px;
+  height: 80%;
   margin: 0px;
   padding: 8px;
   margin: 8px;
@@ -84,10 +93,50 @@ a {
   object-fit: cover;
 }
 
-.page-title {
+.page-title, .secret-title {
+  display: block;
   height: 100%;
-  padding: 8px;
+  padding-top: 1%;
   text-align: center;
-  font-size: 24px;
+  font-size: 2vw;
   color: #BBBBBB;
 }
+
+.secret-title {
+  display: none;
+}
+
+.page:hover .page-title {
+  display: none;
+}
+
+.page:hover .secret-title {
+  display: block;
+}
+
+@media (orientation: portrait) {
+  body {
+    overflow-y: scroll;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+    padding: 4%;
+  }
+
+  .page {
+    height: 80%;
+    border-radius: 32px;
+  }
+
+  img, .page-preview {
+    border-radius: 24px;
+  }
+
+  .page-title, .secret-title {
+    font-size: 6vw;
+  }
+
+  .banner {
+    font-size: 7vw;
+  }
