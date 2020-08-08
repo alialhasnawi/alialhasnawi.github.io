@@ -76,8 +76,8 @@ function playClip() {
       outTag.style.fontSize = '2.5vw';
     }
 
-    //speakingInterval = speak(inTag.value, speedRate, pitchRate);
-    speakingInterval = speak(inTag.value, 20, pitchRate);
+    speakingInterval = speak(inTag.value, speedRate, pitchRate);
+    //speakingInterval = speak(inTag.value, 20, pitchRate);
   }
 }
 
