@@ -31,6 +31,13 @@ var pitchSliderTag;
 var speedSliderTag;
 var inTag;
 
+// ratty variables
+
+var rat1Tag;
+var rat2Tag;
+
+var mouthOpen = false;
+
 // init variables for speak()
 var speaking = false;
 var speakingInterval = 'CLEARED';
@@ -45,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function(e) {
   speedSliderTag = document.getElementById('speedRange');
   inTag = document.getElementById('inText');
 
+  rat1Tag = document.getElementById('rat-bg');
+  rat2Tag = document.getElementById('rat-img');
+
   nameTag = document.getElementById('dialogue-name');
 
   pitchSliderTag.oninput = function() {
@@ -55,9 +65,14 @@ document.addEventListener('DOMContentLoaded', function(e) {
     switch (this.value.toLowerCase().trim()) {
       case 'sans':
         specialState = 'sans';
+        rat1Tag.style.display = 'none';
+        break;
+      case 'janani':
+        specialState = 'janani';
         break;
       default:
         specialState = 'none';
+        rat1Tag.style.display = 'none';
     }
   }
 
@@ -111,32 +126,56 @@ function speak(text, time, rate, ignore = false) {
   if (!speaking || ignore) {
     speaking = true;
 
-    var animalTxt = toAnimal(text);
+    var animalTxt = toAnimal(text) + ' ';
     var arrayTxt = transcribe(text);
+    arrayTxt.push(' ');
 
     var length = animalTxt.length;
     var originalLength = text.length;
 
+
     var speakingID = setLimitedInterval(function(i) {
-      if (specialState === 'sans') {
-        if (animalTxt[i] !== ' ') {
-          play(sounds['sans'], 1);
+        if (specialState === 'sans') {
+          if (animalTxt[i] !== ' ') {
+            play(sounds['sans'], 1);
+          }
+        } else if (specialState === 'janani') {
+          if (rat1Tag.style.display !== 'flex') {
+            rat1Tag.style.display = 'flex';
+          }
+
+          if (animalTxt[i] == ' ') {
+            if (mouthOpen) {
+              rat2Tag.style.opacity = '0';
+            }
+          } else {
+            rat2Tag.style.opacity = mouthOpen ? '0' : '1';
+            mouthOpen = !mouthOpen;
+            play(sounds[phonemes.includes(animalTxt[i]) ? animalTxt[i] : 'b'], pitchRate);
+          }
+        } else {
+          if (animalTxt[i] == ' ') {
+            // nothing :)
+          } else {
+            play(sounds[phonemes.includes(animalTxt[i]) ? animalTxt[i] : 'b'], pitchRate);
+          }
         }
-      } else {
+
+        /*
         if (phonemes.includes(animalTxt[i])) {
           play(sounds[animalTxt[i]], pitchRate);
         } else if (animalTxt[i] == ' ') {
           // nothing lol
         } else {
           play(sounds['b'], pitchRate);
-        }
-      }
+        }*/
 
-      outTag.innerHTML += arrayTxt[i];
+        outTag.innerHTML += arrayTxt[i];
 
-    }, time, length, null, function() {
-      speaking = false
-    });
+      }, time, length, null,
+      function() {
+        speaking = false
+      });
 
     return speakingID;
   }
