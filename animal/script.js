@@ -288,7 +288,7 @@ function play(buffer, rate) {
 async function load(path) {
   const response = await fetch('./' + path);
   const arrayBuffer = await response.arrayBuffer();
-  return await audioContext.decodeAudioData(arrayBuffer);
+  return audioContext.decodeAudioData(arrayBuffer);
 }
 
 // adds sound to array
