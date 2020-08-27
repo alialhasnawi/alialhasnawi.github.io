@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>watchitiwithme! </title>
+  </head>
+
+  <script type="text/javascript">
+    const meeting = window.location.href.match(/#(.*)/) ? window.location.href.match(/#(.*)/)[1] : undefined;
+  </script>
+
+  <body>
+    <div id="banner">
+      <div id="banner-text">watchitiwithme!</div>
+    </div>
+    <div id="room-container">
+      <div id="window-container">
+        <div id="video-container">
+          <video id="player" src="" controls>
+            loading...
+          </video>
+        </div>
+        <div id="chat-container">
+          <div id="chat-out">
+            <div class="chat-item"><strong>Welcome to the room~<br></strong></div>
+          </div>
+          <div id="chat-in-container">
+            <form id="chat" action="javascript:say()">
+              <label for="chat-in"></label>
+              <input placeholder="send a message" type="text" name="chat-in" id="chat-in" maxlength="280">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="join-container">
+      <div id="join-box">
+        <div class="join-item" id="j-loading">
+          <div id="j-loading-text">
+            Loading...
+          </div>
+          <div id="j-loading-item">
+
+          </div>
+        </div>
+        <div class="join-item" id="j-failed">
+          <div id="j-failed-text">
+            Connection failed!<br>Please try again.<br><br><br><br><br><small>Room could not be accessed :(</small>
+          </div>
+
+        </div>
+        <div class="join-item" id="j-create">
+          <form class="j-form" action="javascript:connect()">
+            <label for="enter-url"><strong>Enter the Video URL</strong><br><small>This only works with HTML5</small><br><br></label>
+            <input type="url" name="enter-url" class="text-input" id="enter-url" maxlength="4096"><br>
+            <label for="submit-url"></label>
+            <input type="submit" name="submit-url" class="submit-button" id="submit-url" value="Create Room">
+          </form>
+        </div>
+        <div class="join-item" id="j-name">
+          <form class="j-form" action="javascript:join()">
+            <label id="welcome-room" for="enter-name"><strong style="font-size: 18px">Enter Your Name</strong><br><small>Others will see this name</small><br><br></label>
+            <input type="text" name="enter-name" class="text-input" id="enter-name" maxlength="15"><br>
+            <label for="submit-name"></label>
+            <input type="submit" name="submit-name" class="submit-button" id="submit-name" value="Join Room">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    <button onclick="connect()" type="button" name="q">CONNECT (LINK OR ROOM REQUEST)</button>
+    <button onclick="join(String(Math.random()))" type="button" name="q">JOIN AS sansGaming123</button>
+    <video id="player" src="" controls>
+      loading...
+    </video>-->
+  </body>
+
+  <script src="script.js"></script>
+
+</html>
