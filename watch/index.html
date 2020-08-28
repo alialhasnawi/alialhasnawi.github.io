@@ -28,7 +28,7 @@
             <div class="chat-item"><strong>Welcome to the room~<br></strong></div>
           </div>
           <div id="chat-in-container">
-            <form id="chat" action="javascript:say()">
+            <form autocomplete="off" id="chat" action="javascript:say()">
               <label for="chat-in"></label>
               <input placeholder="send a message" type="text" name="chat-in" id="chat-in" maxlength="280">
             </form>
@@ -53,7 +53,7 @@
 
         </div>
         <div class="join-item" id="j-create">
-          <form class="j-form" action="javascript:connect()">
+          <form autocomplete="off" class="j-form" action="javascript:connect()">
             <label for="enter-url"><strong>Enter the Video URL</strong><br><small>This only works with HTML5</small><br><br></label>
             <input type="url" name="enter-url" class="text-input" id="enter-url" maxlength="4096"><br>
             <label for="submit-url"></label>
@@ -61,7 +61,7 @@
           </form>
         </div>
         <div class="join-item" id="j-name">
-          <form class="j-form" action="javascript:join()">
+          <form autocomplete="off" class="j-form" action="javascript:join()">
             <label id="welcome-room" for="enter-name"><strong style="font-size: 18px">Enter Your Name</strong><br><small>Others will see this name</small><br><br></label>
             <input type="text" name="enter-name" class="text-input" id="enter-name" maxlength="15"><br>
             <label for="submit-name"></label>
