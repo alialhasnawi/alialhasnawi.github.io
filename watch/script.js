@@ -26,6 +26,8 @@ var chatOut = document.querySelector('#chat-out');
 
 var banner = document.querySelector('#banner-text');
 
+var windowC = document.querySelector('#window-container');
+
 cycleStates('create');
 
 function cycleStates(next) {
@@ -113,8 +115,15 @@ function connect() {
         banner.innerHTML += '&nbsp;&nbsp;&nbsp; share this link:&nbsp;' + `<span id="share">${window.location.href}</span>`;
 
         // display enter name
+        vid.onloadedmetadata = () => {
+          windowC.style.height = `${75*(vid.videoHeight/vid.videoWidth)}vw`;
+          console.log(75 * (vid.videoHeight / vid.videoWidth));
+        }
+
         vid.src = m.src;
         vid.volume = 0.3;
+
+
 
         break;
       case 'roomFake':
