@@ -92,6 +92,11 @@ function connect() {
 
           chatOut.innerHTML += `<div class="chat-item"><strong>${sender}</strong>${m.t}</div>`;
           chatOut.scrollTop = chatOut.scrollHeight;
+        } else if (m.h == 'p') {
+          ws.send(JSON.stringify({
+            ask: 'p'
+          }));
+          console.log('ping!');
         }
 
         break;
@@ -117,7 +122,6 @@ function connect() {
         // display enter name
         vid.onloadedmetadata = () => {
           windowC.style.height = `${75*(vid.videoHeight/vid.videoWidth)}vw`;
-          console.log(75 * (vid.videoHeight / vid.videoWidth));
         }
 
         vid.src = m.src;

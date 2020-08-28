@@ -225,7 +225,11 @@ video {
   }
 
   .chat-item {
-    color: #BBB;
+    color: #DDD;
+  }
+
+  .chat-item>strong {
+    color: #492378;
   }
 
   #chat-container {
