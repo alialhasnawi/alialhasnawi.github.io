@@ -96,7 +96,6 @@ function connect() {
           ws.send(JSON.stringify({
             ask: 'p'
           }));
-          console.log('ping!');
         }
 
         break;
