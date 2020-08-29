@@ -180,7 +180,6 @@ function connect() {
 
 vid.onseeked = () => {
   if (shouldSend && waited) {
-    console.log('SKEED');
     ws.send(JSON.stringify({
       ask: 'roomE',
       r: meeting,
