@@ -4,6 +4,8 @@ var me;
 
 var shouldSend = true;
 
+var waited = false;
+
 var vid = document.querySelector('#player');
 var enterURL = document.querySelector('#enter-url');
 
@@ -16,6 +18,7 @@ var joinStates = {
 
 var roomC = document.querySelector('#room-container');
 var joinC = document.querySelector('#join-container');
+var windowC = document.querySelector('#window-container');
 
 var enterName = document.querySelector('#enter-name');
 
@@ -25,8 +28,6 @@ var chatIn = document.querySelector('#chat-in');
 var chatOut = document.querySelector('#chat-out');
 
 var banner = document.querySelector('#banner-text');
-
-var windowC = document.querySelector('#window-container');
 
 cycleStates('create');
 
@@ -50,7 +51,7 @@ function connect() {
     window.setTimeout(() => {
       window.location.href = '/watch';
     }, 2000);
-  })
+  });
 
   ws.addEventListener('open', () => {
 
@@ -126,8 +127,6 @@ function connect() {
         vid.src = m.src;
         vid.volume = 0.3;
 
-
-
         break;
       case 'roomFake':
         cycleStates('failed');
@@ -140,7 +139,17 @@ function connect() {
         joinC.style.display = 'none';
         roomC.style.display = 'flex';
 
-        vid.currentTime = m.time;
+        waited = false;
+        setTimeout(() => {
+          waited = true;
+        }, 1000);
+
+        if (m.stime) {
+          vid.currentTime = m.time + (Date.now() - m.stime) / 1000;
+        } else {
+          vid.currentTime = m.time;
+        }
+
         if (m.paused) {
           vid.pause();
         } else {
@@ -149,7 +158,6 @@ function connect() {
 
         break;
       case 'vid':
-
         if (m.paused && !vid.paused) {
           shouldSend = false;
           vid.pause();
@@ -157,7 +165,6 @@ function connect() {
         } else if (!m.paused && vid.paused) {
           shouldSend = false;
           vid.play();
-
         }
 
         if (Math.abs(vid.currentTime - m.time) > 1) {
@@ -172,7 +179,8 @@ function connect() {
 }
 
 vid.onseeked = () => {
-  if (shouldSend) {
+  if (shouldSend && waited) {
+    console.log('SKEED');
     ws.send(JSON.stringify({
       ask: 'roomE',
       r: meeting,
@@ -188,7 +196,7 @@ vid.onseeked = () => {
 }
 
 vid.onplay = () => {
-  if (shouldSend) {
+  if (shouldSend && waited) {
     ws.send(JSON.stringify({
       ask: 'roomE',
       r: meeting,
@@ -204,7 +212,7 @@ vid.onplay = () => {
 }
 
 vid.onpause = () => {
-  if (shouldSend) {
+  if (shouldSend && waited) {
     ws.send(JSON.stringify({
       ask: 'roomE',
       r: meeting,
