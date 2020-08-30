@@ -145,7 +145,7 @@ function connect() {
           waited = true;
         }, 1000);
 
-        vid.innerHTML = `<track default kind="subtitles" srclang="en" label="English" src="http://watchitwithme.herokuapp.com/${meeting}" />`;
+        vid.innerHTML = `<track default kind="subtitles" srclang="en" label="English" crossorigin="anonymous" src="http://watchitwithme.herokuapp.com/${meeting}" />`;
 
         if (m.stime) {
           vid.currentTime = m.time + (Date.now() - m.stime) / 1000;
