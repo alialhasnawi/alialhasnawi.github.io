@@ -45,6 +45,7 @@ function connect() {
   cycleStates('loading');
 
   ws = new WebSocket('wss://watchitwithme.herokuapp.com/');
+  //ws = new WebSocket('ws://127.0.0.1:5000/');
 
   ws.addEventListener('error', () => {
     cycleStates('failed');
@@ -144,7 +145,7 @@ function connect() {
           waited = true;
         }, 1000);
 
-        vid.innerHTML = `<track default kind="subtitles" srclang="en" label="English" src="https://watchitwithme.herokuapp.com/${meeting}" />`;
+        vid.innerHTML = `<track default kind="subtitles" srclang="en" label="English" src="http://watchitwithme.herokuapp.com/${meeting}" />`;
 
         if (m.stime) {
           vid.currentTime = m.time + (Date.now() - m.stime) / 1000;
