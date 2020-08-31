@@ -29,6 +29,8 @@ var chatOut = document.querySelector('#chat-out');
 
 var banner = document.querySelector('#banner-text');
 
+const emoticons = new RegExp('BillySMH|Deadgar|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JMCool|PeaceOut', 'g');
+
 cycleStates('create');
 
 function cycleStates(next) {
@@ -85,6 +87,9 @@ function connect() {
 
         if (m.t !== '_IGNORE_') {
           let sender = '';
+          let item = m.t.replace(emoticons, (match) => {
+            return `<div class="wap"><img class="emote" src="res/${match}.png"></div>`;
+          });
 
           if (m.h) {
             sender = (m.h === me ? 'You' : m.h);
@@ -92,7 +97,7 @@ function connect() {
             sender = someone;
           }
 
-          chatOut.innerHTML += `<div class="chat-item"><strong>${sender}</strong>${m.t}</div>`;
+          chatOut.innerHTML += `<div class="chat-item"><strong>${sender+' '}</strong>${item}</div>`;
           chatOut.scrollTop = chatOut.scrollHeight;
         } else if (m.h == 'p') {
           ws.send(JSON.stringify({
