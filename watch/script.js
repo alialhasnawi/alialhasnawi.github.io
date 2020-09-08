@@ -46,7 +46,7 @@ function cycleStates(next) {
 function connect() {
   cycleStates('loading');
 
-  ws = new WebSocket('ws://watchitwithme.herokuapp.com/');
+  ws = new WebSocket('wss://watchitwithme.herokuapp.com/');
   //ws = new WebSocket('ws://127.0.0.1:5000/');
 
   ws.addEventListener('error', () => {
