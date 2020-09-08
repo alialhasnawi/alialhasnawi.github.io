@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="404 -320 1787 1567" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 2014.802 195.051 C 2014.802 269.946 1989.976 340.896 1945.616 404.305 C 2080.823 490.35 2162.906 603.525 2162.906 727.506 C 2162.906 996.834 1775.548 1215.169 1297.716 1215.169 C 819.885 1215.169 432.526 996.834 432.526 727.506 C 432.526 603.525 514.609 490.351 649.815 404.306 C 605.455 340.897 580.629 269.946 580.629 195.051 C 580.629 -74.277 901.68 -292.612 1297.716 -292.612 C 1693.751 -292.612 2014.802 -74.277 2014.802 195.051 Z" style="fill: rgb(255, 255, 255); stroke-width: 46px; stroke: rgb(242, 242, 242);"/>
+  <rect style="fill: rgb(255, 255, 255); stroke: rgb(223, 223, 223); stroke-linejoin: round; stroke-width: 50px;" x="800" width="250" height="1000" rx="45" ry="45"/>
+  <rect style="fill: rgb(255, 255, 255); stroke: rgb(223, 223, 223); stroke-linejoin: round; stroke-width: 50px;" x="1050" width="250" height="1000" rx="45" ry="45"/>
+  <rect style="fill: rgb(255, 255, 255); stroke: rgb(223, 223, 223); stroke-linejoin: round; stroke-width: 50px;" x="1300" width="250" height="1000" rx="45" ry="45"/>
+  <rect style="fill: rgb(255, 255, 255); stroke: rgb(223, 223, 223); stroke-linejoin: round; stroke-width: 50px;" x="1550" width="250" height="1000" rx="45" ry="45"/>
+  <rect style="stroke-linejoin: round; stroke: rgb(112, 112, 112); fill: rgb(143, 143, 143); stroke-width: 50px;" x="970.957" y="-40" width="159.121" height="633.616" rx="35" ry="35"/>
+  <rect style="stroke-linejoin: round; stroke: rgb(112, 112, 112); fill: rgb(143, 143, 143); stroke-width: 50px;" x="1220.957" y="-40" width="159.121" height="633.616" rx="35" ry="35"/>
+  <rect style="stroke-linejoin: round; fill: rgb(121, 185, 213); stroke: rgb(96, 149, 176); stroke-width: 50px;" x="1470.957" y="-40" width="159.121" height="633.616" rx="35" ry="35"/>
+</svg>

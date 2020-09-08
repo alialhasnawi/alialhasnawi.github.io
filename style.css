@@ -33,24 +33,24 @@ body {
   font-family: Verdana, Arial;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-}
-
 a {
   text-decoration: none;
 }
 
 .banner {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   font-size: 2.5vw;
   width 100%;
   margin: 0px;
   padding: 20px;
   color: #63a0c9;
+}
+
+small {
+  font-size: 0.3em;
 }
 
 .menu {
@@ -70,12 +70,10 @@ a {
 }
 
 .page {
-  overflow: hidden;
-  height: 80%;
+  height: auto;
   margin: 0px;
-  padding: 8px;
+  padding: 0px;
   margin: 8px;
-  background-color: #F6F6F6;
   border-radius: 16px;
   border: 2px solid #F0F0F0;
   border-bottom: 8px solid #F0F0F0;
@@ -85,20 +83,25 @@ a {
 
 .page-preview {
   display: flex;
-  height: 80%;
-  text-align: center;
+  height: 100px;
   align-items: center;
-  background-color: #FFFFFF;
-  border-radius: 8px;
-  object-fit: cover;
+  justify-content: center;
+  padding: 16px;
+  overflow: visible;
+}
+
+img {
+  height: 80%;
+  width: auto;
+  overflow: visible;
 }
 
 .page-title, .secret-title {
-  display: block;
-  height: 100%;
-  padding-top: 1%;
-  text-align: center;
-  font-size: 2vw;
+  display: flex;
+  height: 30px;
+  vertical-align: middle;
+  justify-content: center;
+  font-size: 1.8vw;
   color: #BBBBBB;
 }
 
@@ -106,12 +109,22 @@ a {
   display: none;
 }
 
-.page:hover .page-title {
+.page-titles:hover .page-title {
   display: none;
 }
 
-.page:hover .secret-title {
-  display: block;
+.page-titles:hover .secret-title {
+  display: flex;
+}
+
+.page-text {
+  display: flex;
+  padding: 20px;
+  padding-bottom: 16px;
+  /*text-indent: 1em;*/
+  line-height: 1.5;
+  color: #777;
+  font-size: 1vw;
 }
 
 @media (orientation: portrait) {
@@ -124,19 +137,15 @@ a {
     padding: 4%;
   }
 
-  .page {
-    height: 80%;
-    border-radius: 32px;
-  }
-
-  img, .page-preview {
-    border-radius: 24px;
+  .banner {
+    font-size: 8vw;
   }
 
   .page-title, .secret-title {
-    font-size: 6vw;
+    font-size: 4vw;
   }
 
-  .banner {
-    font-size: 7vw;
+  .page-text {
+    font-size: 2.5vw;
   }
+}
