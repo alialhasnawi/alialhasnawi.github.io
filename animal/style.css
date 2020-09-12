@@ -68,7 +68,7 @@ body {
 #rat-bg {
   display: none;
   height: 50vh;
-  background: url("res/rat_1.webp");
+  background: url("res/rat_1.webp"), url("res/rat_1.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
