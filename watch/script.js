@@ -29,7 +29,7 @@ var chatOut = document.querySelector('#chat-out');
 
 var banner = document.querySelector('#banner-text');
 
-const emoticons = new RegExp('BillySMH|Deadgar|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JanRemy|JanSucks|JMCool|PeaceOut|PWEASE', 'g');
+const emoticons = new RegExp('BillySMH|Deadgar|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JanRemy|JanSucks|JMCool|PeaceOut|PWEASE|SansGaming|SansPog', 'g');
 
 cycleStates('create');
 
