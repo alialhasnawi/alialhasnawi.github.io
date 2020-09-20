@@ -162,7 +162,7 @@ function connect() {
           windowC.style.height = `${75*(vid.videoHeight/vid.videoWidth)}vw`;
         }
 
-        vid.src = m.src;
+        vid.innerHTML += `<source src="${m.src}" onerror="this.crossorigin='anonymous'">"`;
         vid.volume = 0.3;
 
         break;
@@ -182,7 +182,7 @@ function connect() {
           waited = true;
         }, 1000);
 
-        vid.innerHTML = `<track default kind="subtitles" srclang="en" label="English" crossorigin="anonymous" src="https://watchitwithme.herokuapp.com/${meeting}" />`;
+        vid.innerHTML += `<track default kind="subtitles" srclang="en" label="English" src="https://watchitwithme.herokuapp.com/${meeting}" />`;
 
         if (m.stime) {
           vid.currentTime = m.time + (Date.now() - m.stime) / 1000;
