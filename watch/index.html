@@ -15,7 +15,7 @@
 
   <body>
     <div id="banner">
-      <div id="banner-text"><img id="logo" src="res/logo1.svg">watchitiwithme!</div>
+      <div id="banner-text"><img onclick="colorMode();" id="logo" src="res/logo1.svg">watchitiwithme!</div>
     </div>
     <div id="room-container">
       <div id="window-container">
@@ -25,6 +25,9 @@
           </video>
         </div>
         <div id="chat-container">
+          <div id="e-container">
+            <div id="e-list"></div>
+          </div>
           <div id="chat-out">
             <div class="chat-item"><strong>Welcome to the room~<br></strong></div>
           </div>
@@ -32,6 +35,7 @@
             <form autocomplete="off" id="chat" action="javascript:say()">
               <label for="chat-in"></label>
               <input placeholder="send a message" type="text" name="chat-in" id="chat-in" class="border-focus" maxlength="280">
+              <div id="e-button" onclick="eListC.style.display=eListC.style.display !=='grid' ? 'grid' : 'none'">E</div>
             </form>
           </div>
         </div>

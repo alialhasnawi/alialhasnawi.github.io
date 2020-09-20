@@ -6,6 +6,8 @@ var shouldSend = true;
 
 var waited = false;
 
+var night = false;
+
 var vid = document.querySelector('#player');
 var enterURL = document.querySelector('#enter-url');
 
@@ -29,7 +31,19 @@ var chatOut = document.querySelector('#chat-out');
 
 var banner = document.querySelector('#banner-text');
 
-const emoticons = new RegExp('BillySMH|Deadgar|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JanRemy|JanSucks|JMCool|PeaceOut|PWEASE|SansGaming|SansPog', 'g');
+var eListC = document.querySelector('#e-list');
+
+const emotes = 'BillySMH|Deadgar|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JanRemy|JanSucks|JMCool|PeaceOut|PWEASE|SansBadtime|SansGaming|SansPog|SansWink';
+const eList = emotes.split('|');
+
+const emoticons = new RegExp(emotes, 'g');
+
+var eHTML = '';
+
+//Loading emmote
+eList.forEach(item => eHTML += `<div class="e-option" onclick="chatIn.value+='${item}'; chatIn.focus();"><img src="res/${item}.png"></div>`);
+
+eListC.innerHTML = eHTML;
 
 cycleStates('create');
 
@@ -42,6 +56,24 @@ function cycleStates(next) {
     }
   }
 }
+
+function colorMode() {
+  if (night) {
+    document.body.style.backgroundColor = '';
+    chatOut.style.color = '#000';
+  } else {
+    document.body.style.backgroundColor = '#222';
+    chatOut.style.color = '#DDD';
+  }
+
+  night = !night;
+}
+
+document.onclick = function(e) {
+  if (e.target.id !== 'e-list' && e.target.id !== 'e-button' && e.target.id !== 'chat-in') {
+    eListC.style.display = 'none';
+  }
+};
 
 function connect() {
   cycleStates('loading');

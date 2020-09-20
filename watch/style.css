@@ -163,6 +163,7 @@ video {
   margin: 8px;
   margin-left: 0px;
   padding: 12px;
+  position: relative;
 }
 
 #chat-in-container {
@@ -192,6 +193,7 @@ video {
   height: 0.1em;
   width: 1.9em;
   position: relative;
+  z-index: 0;
 }
 
 .emote {
@@ -206,11 +208,14 @@ video {
 
 #chat {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
+  align-items: center;
 }
 
 #chat-in {
-  width: 100%;
+  width: 90%;
   height: 32px;
   padding-left: 8px;
   font-size: 14px;
@@ -218,10 +223,68 @@ video {
   border: solid 1px #DDD;
   border-radius: 4px;
   outline: none;
+  z-index: 2;
 }
 
 #chat-in:focus {
   border: solid 1px #6c0f96;
+}
+
+#e-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6c0f96;
+  color: #FFF;
+  width: 28px;
+  height: 28px;
+  margin-left: 8px;
+  border-radius: 28px;
+  user-select: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#e-container {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  visibility: hidden;
+}
+
+#e-list {
+  display: none;
+  grid-template-columns: repeat(auto-fit, 32px);
+  grid-gap: 8px;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-height: 30%;
+  margin: 12px;
+  padding: 8px;
+  margin-bottom: 56px;
+  border-radius: 6px;
+  border: 1px solid #CCC;
+  background-color: #EEE;
+  overflow: scroll;
+  visibility: visible;
+}
+
+.e-option {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.e-option:hover {
+  transform: scale(1.05);
 }
 
 #join-container {
