@@ -234,15 +234,18 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #6c0f96;
   color: #FFF;
-  width: 28px;
-  height: 28px;
+  min-width: 32px;
+  min-height: 32px;
   margin-left: 8px;
-  border-radius: 28px;
   user-select: none;
   cursor: pointer;
   z-index: 2;
+  background-image: url("res/eclose.svg");
+}
+
+#e-button:hover {
+  background-image: url("res/eopen.svg");
 }
 
 #e-container {
