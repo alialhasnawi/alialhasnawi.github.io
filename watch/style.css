@@ -313,14 +313,6 @@ video {
 }
 
 @media (orientation: portrait) {
-  #room-container {
-    background-color: #555;
-  }
-
-  .chat-item {
-    color: #DDD;
-  }
-
   .chat-item>strong {
     color: #492378;
   }
@@ -328,16 +320,6 @@ video {
   #chat-container {
     border: none;
     border-radius: 6px;
-    background-color: #666;
-  }
-
-  #chat-in {
-    background-color: #888;
-    border-color: #777;
-  }
-
-  #chat-in::placeholder {
-    color: #555;
   }
 
   #window-container {
