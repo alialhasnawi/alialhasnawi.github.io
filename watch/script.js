@@ -162,7 +162,7 @@ function connect() {
           windowC.style.height = `${75*(vid.videoHeight/vid.videoWidth)}vw`;
         }
 
-        vid.innerHTML += `<source src="${m.src}" onerror="this.crossorigin='anonymous'">"`;
+        vid.innerHTML += `<source src="${m.src}" onerror="this.onerror=null; this.crossorigin='';">`;
         vid.volume = 0.3;
 
         break;

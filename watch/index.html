@@ -20,7 +20,7 @@
     <div id="room-container">
       <div id="window-container">
         <div id="video-container">
-          <video id="player" crossorigin controls playsinline>
+          <video id="player" onerror="console.log('Error Loading Video!'); this.onerror=null; this.crossOrigin='';" controls playsinline>
           </video>
         </div>
         <div id="chat-container">
