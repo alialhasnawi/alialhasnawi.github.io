@@ -42,7 +42,7 @@ var mouthOpen = false;
 var speaking = false;
 var speakingInterval = 'CLEARED';
 var pitchRate = 1.8;
-var speedRate = 70;
+var speedRate = 55;
 
 var specialState = 'none';
 
@@ -106,7 +106,7 @@ function playClip() {
       outTag.style.fontSize = '2.5vw';
     }
 
-    speakingInterval = speak(inTag.value, speedRate, pitchRate);
+    speakingInterval = speak(inTag.value.replace(/(\r|\n)/gm, ' '), speedRate, pitchRate);
     //speakingInterval = speak(inTag.value, 5, pitchRate);
   }
 }
