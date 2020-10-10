@@ -33,7 +33,7 @@ var banner = document.querySelector('#banner-text');
 
 var eListC = document.querySelector('#e-list');
 
-const emotes = 'BillySMH|Deadgar|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JanRemy|JanSucks|JMCool|NoBrows|PeaceOut|PWEASE|SansBadtime|SansGaming|SansPog|SansWink';
+const emotes = 'BillySMH|Deadgar|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JanRemy|JanSucks|JMCool|NoBrows|PeaceOut|PWEASE';
 const eList = emotes.split('|');
 
 const emoticons = new RegExp(emotes, 'g');
