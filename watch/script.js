@@ -162,7 +162,14 @@ function connect() {
           windowC.style.height = `${75*(vid.videoHeight/vid.videoWidth)}vw`;
         }
 
-        vid.innerHTML += `<source src="${m.src}" onerror="this.onerror=null; this.crossorigin='';">`;
+        fetch(`https://watchitwithme.herokuapp.com/${meeting}`).then(response => {
+          if (response.status !== 300) {
+            vid.crossOrigin = '';
+            vid.innerHTML += `<track default crossorigin kind="subtitles" srclang="en" label="English" src="https://watchitwithme.herokuapp.com/${meeting}" />`;
+          }
+          vid.innerHTML += `<source src="${m.src}" onerror="this.onerror=null; this.crossorigin='';">`;
+        });
+
         vid.volume = 0.3;
 
         break;
@@ -181,8 +188,6 @@ function connect() {
         setTimeout(() => {
           waited = true;
         }, 1000);
-
-        vid.innerHTML += `<track default crossorigin kind="subtitles" srclang="en" label="English" src="https://watchitwithme.herokuapp.com/${meeting}" />`;
 
         if (m.stime) {
           vid.currentTime = m.time + (Date.now() - m.stime) / 1000;
