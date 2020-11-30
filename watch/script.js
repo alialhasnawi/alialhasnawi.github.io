@@ -167,7 +167,7 @@ function connect() {
         fetch(`https://watchitwithme.herokuapp.com/${meeting}`).then(response => {
           if (response.status !== 300) {
             vid.crossOrigin = '';
-            vid.innerHTML += `<track default crossorigin kind="subtitles" srclang="en" label="English" src="https://watchitwithme.herokuapp.com/${meeting}" />`;
+            vid.innerHTML = `<source src="${m.src}" onerror="this.onerror=null; this.crossorigin='';"><track default crossorigin kind="subtitles" srclang="en" label="English" src="https://watchitwithme.herokuapp.com/${meeting}" />`;
           }
         });
 
