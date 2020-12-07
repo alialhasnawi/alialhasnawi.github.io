@@ -163,10 +163,14 @@ function connect() {
         }
 
         fetch(`https://watchitwithme.herokuapp.com/${meeting}`).then(response => {
+          console.log(`https://watchitwithme.herokuapp.com/${meeting}`);
+          console.log(response.status);
           if (response.status !== 300) {
+            console.log('CC found!');
             vid.crossOrigin = '';
             vid.innerHTML = `<source src="${m.src}" onerror="this.onerror=null; this.crossorigin='';"><track default crossorigin kind="subtitles" srclang="en" label="English" src="https://watchitwithme.herokuapp.com/${meeting}" />`;
           } else {
+            console.log('CC not found!');
             vid.innerHTML += `<source src="${m.src}" onerror="this.onerror=null; this.crossorigin='';">`;
           }
         });
