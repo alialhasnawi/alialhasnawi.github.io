@@ -21,11 +21,12 @@ body {
   height: 60px;
   vertical-align: middle;
   filter: drop-shadow(0px 3px #ccb5e8);
+  cursor: help;
 }
 
 #banner {
   width: 100%;
-  height: 72px;
+  height: 92px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +35,7 @@ body {
   color: #FFFFFF;
   padding-left: 16px;
   font-size: 2.3vw;
-  text-shadow: 0px 3px #ccb5e8;
+  text-shadow: 0px 2px #ccb5e8;
 }
 
 #banner-text {
@@ -44,20 +45,25 @@ body {
 #share {
   display: inline;
   width: auto;
-  height: 40px;
+  height: 2.4vw;
   padding: 4px;
   outline: none;
   border-radius: 8px;
   text-decoration: underline;
-  line-height: 0;
+  line-height: 0px;
   user-select: all;
   cursor: pointer;
+}
+
+#share::selection {
+  background: #6c0f96;
 }
 
 .j-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   width: 100%;
   font-size: 24px;
   line-height: 25px;
@@ -96,17 +102,23 @@ video {
 
 .text-input {
   width: 95%;
-  margin: 0px;
+  height: 26px;
   outline: #777;
   border: 1px solid #DDDDDD;
   border-radius: 5px;
-  padding: 5px;
+  margin: 15px 0px 15px 0px;
   font-size: 18px;
   align-self: center;
 }
 
 .text-input:focus {
   border-color: #6c0f96;
+}
+
+.text-input[disabled] {
+  background-color: #EEEEEE;
+  color: #BBBBBB;
+  cursor: not-allowed;
 }
 
 .submit-button {
@@ -121,7 +133,7 @@ video {
   border-bottom: solid 3px #6c0f96;
   border-radius: 8px;
   font-size: 20px;
-  margin-bottom: 32px;
+  margin: 12px 0px 8px 0px;
 }
 
 .submit-button:hover {
@@ -132,6 +144,48 @@ video {
 .submit-button:active {
   background-color: #6c0f96;
   transform: scale(0.98);
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  vertical-align: middle;
+}
+
+.check-box {
+  margin: 0px;
+  padding: 0px;
+}
+
+.check-text {
+  font-size: 14px;
+  color: #666666;
+  line-height: normal;
+}
+
+#join-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#join-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0px 16px 0px;
+  border: 1px solid #DDDDDD;
+  border-radius: 24px;
+  width: 350px;
+  height: auto;
+  min-height: 200px;
+  box-shadow: 4px 15px 17px #EEEEEE;
 }
 
 #room-container {
@@ -288,28 +342,6 @@ video {
 
 .e-option:hover {
   transform: scale(1.05);
-}
-
-#join-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-#join-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 50px 0px 30px 0px;
-  border: 1px solid #DDDDDD;
-  border-radius: 24px;
-  width: 350px;
-  height: 200px;
-  box-shadow: 4px 15px 17px #EEEEEE;
 }
 
 @media (orientation: portrait) {

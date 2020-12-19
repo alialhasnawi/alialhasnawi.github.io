@@ -33,10 +33,17 @@ var banner = document.querySelector('#banner-text');
 
 var eListC = document.querySelector('#e-list');
 
+var enterCC = document.querySelector('#enter-cc');
+var directBox = document.querySelector('#direct-check');
+var ccBox = document.querySelector('#cc-check');
+
 const emotes = 'BillySMH|Brrrep|Deadgar|EatBugTime|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JanRemy|JanSucks|JMCool|NoBrows|PeaceOut|PWEASE|RockTrauma|SansBadtime|SansGaming|SansMpreg|SansWink';
 const eList = emotes.split('|');
 
 const emoticons = new RegExp(emotes, 'g');
+
+//const serverAddress = 'http://127.0.0.1:3000';
+const serverAddress = 'https://watchitwithme.herokuapp.com';
 
 var eHTML = '';
 
@@ -49,12 +56,9 @@ cycleStates('create');
 
 function cycleStates(next) {
   for (var state in joinStates) {
-    if (state == next) {
-      joinStates[state].style.display = 'flex';
-    } else {
-      joinStates[state].style.display = 'none';
-    }
+    joinStates[state].style.display = 'none';
   }
+  joinStates[next].style.display = 'flex';
 }
 
 function colorMode() {
@@ -67,6 +71,10 @@ function colorMode() {
   }
 
   night = !night;
+}
+
+function toggleCCInput() {
+  enterCC.toggleAttribute('disabled');
 }
 
 document.onclick = function(e) {
@@ -99,7 +107,7 @@ function connect() {
       // create meeting code
       ws.send(JSON.stringify({
         ask: 'create',
-        vLink: enterURL.value
+        vLink: `${(directBox.checked ? 'D' : '')}${enterURL.value}${(ccBox.checked ? `|||${enterCC.value}` : '')}`
       }));
     }
 
@@ -155,20 +163,20 @@ function connect() {
       case 'roomReal':
         cycleStates('name');
         welcomeTo.innerHTML = `<strong>Room #${meeting}</strong><br>` + welcomeTo.innerHTML;
-        banner.innerHTML += '&nbsp;&nbsp;&nbsp; share this link:&nbsp;' + `<span id="share">${window.location.href}</span>`;
+        banner.innerHTML += '&nbsp;&nbsp;&nbsp;' + `<span id="share">&nbsp;${window.location.href}&nbsp;</span>`;
 
         // display enter name
         vid.onloadedmetadata = () => {
           windowC.style.height = `${75*(vid.videoHeight/vid.videoWidth)}vw`;
         }
 
-        fetch(`https://watchitwithme.herokuapp.com/${meeting}`).then(response => {
-          console.log(`https://watchitwithme.herokuapp.com/${meeting}`);
+        fetch(`${serverAddress}/${meeting}`).then(response => {
+          console.log(`${serverAddress}/${meeting}`);
           console.log(response.status);
           if (response.status !== 300) {
             console.log('CC found!');
             vid.crossOrigin = '';
-            vid.innerHTML = `<source src="${m.src}" onerror="this.onerror=null; this.crossorigin='';"><track default crossorigin kind="subtitles" srclang="en" label="English" src="https://watchitwithme.herokuapp.com/${meeting}" />`;
+            vid.innerHTML = `<source src="${m.src}" onerror="this.onerror=null; this.crossorigin='';"><track default crossorigin kind="subtitles" srclang="en" label="English" src="${serverAddress}/${meeting}" />`;
           } else {
             console.log('CC not found!');
             vid.innerHTML += `<source src="${m.src}" onerror="this.onerror=null; this.crossorigin='';">`;
@@ -194,15 +202,11 @@ function connect() {
           waited = true;
         }, 1000);
 
-        if (m.stime) {
-          vid.currentTime = m.time + (Date.now() - m.stime) / 1000;
-        } else {
-          vid.currentTime = m.time;
-        }
-
         if (m.paused) {
+          vid.currentTime = m.time;
           vid.pause();
         } else {
+          vid.currentTime = m.time + (Date.now() - m.stime) / 1000;
           vid.play();
         }
 
