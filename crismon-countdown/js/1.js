@@ -1,8 +1,8 @@
 var fingyCount = 0;
 
-window.addEventListener('pointerup', (e) => {
+window.addEventListener((navigator.maxTouchPoints > 1 ? 'touchend' : 'pointerup'), (e) => {
   if (fingyCount < 7) {
-    console.log(`${e.clientX}, ${e.clientY}, ${e.twist}`);
+    console.log(`${e.clientX}, ${e.clientY}, ${e.twist || e.rotationAngle}`);
 
     const chicken = document.createElement('div');
     chicken.className = 'chicken';
@@ -14,7 +14,7 @@ window.addEventListener('pointerup', (e) => {
 
     chicken.appendChild(thumb);
 
-    chicken.style.transform = `translate(${e.clientX}px, ${e.clientY}px) rotate(${e.twist}deg)`;
+    chicken.style.transform = `translate(${e.clientX}px, ${e.clientY}px) rotate(${e.twist || e.rotationAngle}deg)`;
 
     document.body.appendChild(chicken);
 
