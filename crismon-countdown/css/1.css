@@ -29,6 +29,13 @@ body {
   padding: 2vw;
   padding-bottom: 8vh;
   align-self: flex-end;
+  animation: zoom 1s 0.25s ease-out backwards;
+}
+
+@keyframes zoom {
+  from {
+    width: 0vw;
+  }
 }
 
 @keyframes jump {
