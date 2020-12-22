@@ -1,0 +1,32 @@
+* {
+  user-select: none;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.appear-text {
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  padding: 18px;
+  font-size: 24px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  animation: fade-in 2s ease-in-out both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    top: 20px;
+  }
+
+  to {
+    opacity: 1;
+    top: 0px;
+  }
+}
