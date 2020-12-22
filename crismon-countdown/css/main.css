@@ -15,7 +15,7 @@ html, body {
   align-self: flex-start;
   padding: 18px;
   font-size: 24px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: Comic Sans MS, Comic Sans, cursive;
   animation: fade-in 2s ease-in-out both;
 }
 
