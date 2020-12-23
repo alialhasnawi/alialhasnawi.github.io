@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+    <title>catchem</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/svg" href="res/grass.png">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/2.css">
+
+    <link rel="prefetch" href="res/grass.png">
+  </head>
+
+  <body>
+    <div id="before">
+      <div class="appear-text">
+        can't wait to...
+      </div>
+      <div style="animation-delay: 1s; padding-left: 20vw;" class="appear-text">
+        <p style="animation: jiggle 1s infinite;">pokÉmon again !</p>
+      </div>
+      <div style="animation-delay: 2s; color: #b35929;" class="appear-text">
+        <p>look around!!</p>
+      </div>
+
+      <div class="grass-grid">
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+      </div>
+    </div>
+
+    <div id="after">
+      <div class="opponent">
+        <img class="worm" src="res/wormie.png" alt="pathetic worm">
+      </div>
+      <div class="dialogue-box">
+        <div class="scrolling">he vibrating 😳😳😳</div>
+      </div>
+      <div class="poke-grid">
+
+        <div class="pokemon">
+          <div class="icon">
+            <img onpointerenter="document.querySelector('#s-mush').play(); jumpPokemon(this);" onpointerleave="idlePokemon(this);" class="thumbnail" src="res/mush.png" alt="angy">
+          </div>
+          <div class="stats">
+            <div class="level">
+              N. 16
+            </div>
+            <div class="name">
+              ANGY
+            </div>
+            <div class="bar">
+
+            </div>
+            <div class="health">
+              47 / 47
+            </div>
+          </div>
+        </div>
+
+        <div class="pokemon">
+          <div class="icon">
+            <img onpointerenter="document.querySelector('#s-boob').play(); jumpPokemon(this);" onpointerleave="idlePokemon(this);" class="thumbnail" src="res/boob.png" alt="bird">
+          </div>
+          <div class="stats">
+            <div class="level">
+              N. 26
+            </div>
+            <div class="name">
+              ONION
+            </div>
+            <div class="bar">
+
+            </div>
+            <div class="health">
+              75 / 75
+            </div>
+          </div>
+        </div>
+
+        <div class="pokemon">
+          <div class="icon">
+            <img onpointerenter="document.querySelector('#s-furry').play(); jumpPokemon(this);" onpointerleave="idlePokemon(this);" class="thumbnail" src="res/furry.png" alt="wolf">
+          </div>
+          <div class="stats">
+            <div class="level">
+              N. 25
+            </div>
+            <div class="name">
+              Furry
+            </div>
+            <div class="bar">
+
+            </div>
+            <div class="health">
+              79 / 79
+            </div>
+          </div>
+        </div>
+
+        <div class="pokemon">
+          <div class="icon">
+            <img onpointerenter="document.querySelector('#s-rotie').play(); jumpPokemon(this);" onpointerleave="idlePokemon(this);" class="thumbnail" src="res/rotie.png" alt="rotie<3">
+          </div>
+          <div class="stats">
+            <div class="level">
+              N. 30
+            </div>
+            <div class="name">
+              Rotie
+            </div>
+            <div class="bar">
+
+            </div>
+            <div class="health">
+              82 / 82
+            </div>
+          </div>
+        </div>
+
+        <div class="pokemon">
+          <div class="icon">
+            <img onpointerenter="document.querySelector('#s-pika').play(); jumpPokemon(this);" onpointerleave="idlePokemon(this);" class="thumbnail" src="res/pika.png" alt="pikapika">
+          </div>
+          <div class="stats">
+            <div class="level">
+              N. 22
+            </div>
+            <div class="name">
+              Pikachu
+            </div>
+            <div class="bar">
+
+            </div>
+            <div class="health">
+              54 / 54
+            </div>
+          </div>
+        </div>
+
+        <div class="pokemon">
+          <div class="icon">
+            <img onpointerenter="document.querySelector('#s-dumple').play(); jumpPokemon(this);" onpointerleave="idlePokemon(this);" class="thumbnail" src="res/dumple.png" alt="dumpling">
+          </div>
+          <div class="stats">
+            <div class="level">
+              N. 25
+            </div>
+            <div class="name">
+              DUMPLING
+            </div>
+            <div class="bar">
+
+            </div>
+            <div class="health">
+              70 / 70
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <audio id="music" src="res/battle.mp3">
+    </audio>
+    <audio id="s-boob" src="res/boob.mp3">
+    </audio>
+    <audio id="s-dumple" src="res/dumple.mp3">
+    </audio>
+    <audio id="s-furry" src="res/furry.mp3">
+    </audio>
+    <audio id="s-mush" src="res/mush.mp3">
+    </audio>
+    <audio id="s-pika" src="res/pika.mp3">
+    </audio>
+    <audio id="s-rotie" src="res/rotie.mp3">
+    </audio>
+
+  </body>
+
+  <script src="js/2.js"></script>
+
+</html>

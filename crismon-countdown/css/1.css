@@ -29,7 +29,7 @@ body {
   padding: 2vw;
   padding-bottom: 8vh;
   align-self: flex-end;
-  animation: zoom 1s 0.25s ease-out backwards;
+  animation: zoom 0.5s 0.25s ease-out backwards;
 }
 
 @keyframes zoom {
@@ -49,19 +49,5 @@ body {
 
   55% {
     transform: translateY(0vh);
-  }
-}
-
-@keyframes jiggle {
-  0% {
-    transform: rotate(10deg);
-  }
-
-  50% {
-    transform: rotate(-10deg);
-  }
-
-  100% {
-    transform: rotate(10deg);
   }
 }

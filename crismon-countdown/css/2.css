@@ -1,0 +1,168 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #bfffd1;
+  transition: background-color 3.5s;
+}
+
+#before {
+  transition: opacity 1s;
+}
+
+.grass-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 20vw);
+  justify-items: end;
+  align-items: end;
+}
+
+.grass-container {
+  display: flex;
+  align-items: flex-end;
+  height: 20vw;
+  width: 20vw;
+}
+
+.grass {
+  image-rendering: pixelated;
+  width: 20vw;
+  height: 20vw;
+}
+
+#after {
+  opacity: 0;
+  transition: opacity 1s;
+  display: none;
+  justify-content: space-between;
+  align-self: center;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+.poke-grid {
+  display: grid;
+  width: 100%;
+  height: 50%;
+  align-self: flex-end;
+  grid-template-columns: 45vw 45vw;
+  grid-template-rows: 22vw 22vw 22vw;
+  font-family: Verdana;
+  color: #FFF;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  margin: 1vw;
+  padding: 0vw;
+  background-color: #a9f5da;
+  outline: 6vw solid #a9f5da;
+}
+
+.pokemon {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #5acff2;
+  padding-top: 3vw;
+  margin: 3vw 3vw 0vw 3vw;
+  transform: skewX(-15deg);
+  border-radius: 2vw;
+  border: 2vw solid #388196;
+  border-width: 1vw 2vw 2vw 1vw;
+}
+
+.stats {
+  background-color: #e6fbff;
+  width: 30vw;
+  border-radius: 2vw 0vw 0vw 0vw;
+  padding: 3px 10px 0px 10px;
+  font-size: 2.8vw;
+}
+
+.bar {
+  height: 4px;
+  width: 100%;
+  border: 2px solid #000;
+  background-color: #74d435;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  min-width: 10vw;
+  min-height: 10vw;
+  max-width: 10vw;
+  max-height: 10vw;
+  background-color: #b5eeff;
+  border-radius: 15vw;
+  border: 2px solid #e6fbff;
+  transform: skewX(15deg);
+  margin: 1vw;
+  margin-bottom: 5vw;
+}
+
+.thumbnail {
+  align-self: center;
+  height: 8vw;
+  width: auto;
+  image-rendering: pixelated;
+  transition: transform 0.3s;
+}
+
+.opponent {
+  image-rendering: pixelated;
+  width: 60vw;
+  height: auto;
+}
+
+.worm {
+  width: 100%;
+  animation: vibrate 200ms infinite both;
+}
+
+.dialogue-box {
+  width: 80vw;
+  height: 25vw;
+  border: 2vw solid #FFF;
+  border-radius: 1vw;
+  padding: 3vw;
+}
+
+.scrolling {
+  color: #388196;
+  font-family: Arial;
+  font-size: 6vw;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0%;
+  transition: width 3s;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translate(-2vw, 1vw);
+  }
+
+  25% {
+    transform: translate(0vw, 2vw);
+  }
+
+  50% {
+    transform: translate(2vw, 1vw);
+  }
+
+  75% {
+    transform: translate(0vw, -2vw);
+  }
+
+  100% {
+    transform: translate(-2vw, 1vw);
+  }
+}

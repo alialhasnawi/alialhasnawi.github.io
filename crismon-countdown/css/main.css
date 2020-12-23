@@ -15,7 +15,7 @@ html, body {
   align-self: flex-start;
   padding: 18px;
   font-size: 24px;
-  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-family: Comic Sans MS, Comic Sans, Arial;
   animation: fade-in 2s ease-in-out both;
 }
 
@@ -28,5 +28,19 @@ html, body {
   to {
     opacity: 1;
     top: 0px;
+  }
+}
+
+@keyframes jiggle {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(10deg);
   }
 }
