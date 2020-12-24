@@ -49,7 +49,7 @@ function grassEnter(element) {
           scrolling.style.width = '0%';
 
           setTimeout(() => {
-            scrolling.innerHTML = 'mery cristamAS!! hehe';
+            scrolling.innerHTML = 'mery cristamAS!! hehe,ᶦ ˡᵒᵛᵉ ʸᵒᵘ!!';
             scrolling.style.width = '100%';
 
             //christmas delay

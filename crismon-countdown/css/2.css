@@ -74,6 +74,7 @@ body {
   border-radius: 2vw;
   border: 2vw solid #388196;
   border-width: 1vw 2vw 2vw 1vw;
+  animation: vibrate-weak 1s infinite both;
 }
 
 .stats {
@@ -143,6 +144,20 @@ body {
   white-space: nowrap;
   width: 0%;
   transition: width 3s;
+}
+
+@keyframes vibrate-weak {
+  0% {
+    transform: translate(-1vw, 0.5vw) skewX(-15deg);
+  }
+
+  50% {
+    transform: translate(1vw, 0.5vw) skewX(-15deg);
+  }
+
+  100% {
+    transform: translate(-1vw, 0.5vw) skewX(-15deg);
+  }
 }
 
 @keyframes vibrate {
