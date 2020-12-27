@@ -37,7 +37,7 @@ var enterCC = document.querySelector('#enter-cc');
 var directBox = document.querySelector('#direct-check');
 var ccBox = document.querySelector('#cc-check');
 
-const emotes = 'BillySMH|Brrrep|Deadgar|EatBugTime|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JanRemy|JanSucks|JMCool|NoBrows|PeaceOut|PWEASE|RockTrauma|SansBadtime|SansGaming|SansMpreg|SansWink';
+const emotes = 'BillySMH|Brrrep|Deadgar|EatBugTime|EdgarIII|FrickBoy|FrickMan|HEWWO|JanBruh|JanNom|JanRemy|JanSucks|JMCool|MamasGirl|NoBrows|PeaceOut|PWEASE|RockTrauma|SansBadtime|SansGaming|SansMpreg|SansWink';
 const eList = emotes.split('|');
 
 const emoticons = new RegExp(emotes, 'g');
