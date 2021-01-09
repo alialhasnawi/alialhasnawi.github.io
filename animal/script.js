@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
     speedRate = (250 / (Number(this.value) + 0.7)) - 80;
   }*/
 
-  document.addEventListener('click', init);
+  document.addEventListener('pointerdown', init);
 });
 
 // inits context
@@ -92,7 +92,7 @@ function init() {
   loadInventory();
 
   // prevents duplicate inits
-  document.removeEventListener('click', init);
+  document.removeEventListener('pointerdown', init);
 }
 
 function playClip() {
