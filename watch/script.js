@@ -313,4 +313,7 @@ function join() {
 
 if (meeting) {
   connect();
+} else {
+  // Wake up sleepyhead
+  fetch(serverAddress);
 }
