@@ -13,7 +13,7 @@ The  website is built using the holy trinity of HTML, CSS, and Javascript.
 3. **[watchitwithme!](https://alialhasnawi.github.io/watch/)** *simple video scraper and chat service*
 - Backend Node.js server runs on a Heroku free-tier dynamo (which is why first load is slow).
 - Webscraping uses the [puppeteer](https://pptr.dev/) package.
-- Although Github Pages are usually static, dynamic functionality was added using the WebSockets API.
+- Although Github Pages are static, dynamic functionality was added using the WebSockets API.
 
 ### Unfinished Projects
 1. GLtest. *please ignore this, I'll come back to it later*
