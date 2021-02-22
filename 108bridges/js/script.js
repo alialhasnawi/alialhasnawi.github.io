@@ -259,7 +259,7 @@ function getRoute() {
                 _map.removeLayer(path);
             }
 
-            path = L.polyline([...d.map(e=>[b[e][B_LAT], b[e][B_LON]]), [searchParams.lat, searchParams.lon]], {
+            path = L.polyline([[searchParams.lat, searchParams.lon], ...d.map(e=>[b[e][B_LAT], b[e][B_LON]])], {
                 color: 'var(--active-path-colour)'
             }).bringToBack().addTo(_map).on('click', openControls);
 
