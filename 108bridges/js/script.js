@@ -73,7 +73,7 @@ sb.addStatic('connecting', `<div class="sb" id="sb-connecting">
 sb.addStatic('controls', `<div class="sb" id="sb-controls">
     <div class="sb-header">Inspection Route</div>
     <div class="sb-text">Plot a route between bridges in need of inspection and repair.</div>
-    <form class="sb-form" autocomplete="off"">
+    <form class="sb-form" autocomplete="off">
         <div class="sb-f-layer">
             <input checked type="checkbox" name="show" id="sb-f-toggle" class="">    
             <label class="sb-label" for="show">Show Area on Map</label>
