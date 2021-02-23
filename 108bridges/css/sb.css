@@ -248,6 +248,16 @@ tr:nth-child(even) {
     z-index: 10;
 }
 
+.sb-path-point:hover {
+    background-color: var(--hover-marker-colour);
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.sb-path-point:active {
+    transform: scale(0.95);
+}
+
 .sb-path-name {
     display: flex;
     justify-content: center;

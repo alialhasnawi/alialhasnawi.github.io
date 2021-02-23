@@ -267,7 +267,7 @@ function getRoute() {
             highlightPath(d);
             
 
-            // Displaying result
+            /* // Displaying result
             let htm;
 
             if (d.length != 0) {
@@ -276,13 +276,52 @@ function getRoute() {
             } else {
                 htm = `<div class="sb-text">No bridges found in that radius.</div>`;
             }
-            inputElements.results.innerHTML = htm;
+            inputElements.results.innerHTML = htm; */
+
+            if (d.length != 0) {
+                inputElements.results.innerHTML = '';
+
+                let joiner = el('sb-path-join');
+                let grid = el('sb-path-grid');
+
+                for (let i = 0; i < d.length; i++) {
+                    let point = el('sb-path-point');
+                    let name = el('sb-path-name');
+                    name.append(b[d[i]][B_NAME]);
+
+                    point.addEventListener('click', ()=>{
+                        getBridge(d[i]);
+                    });
+
+                    point.addEventListener('mouseover', ()=>{
+                        highlightID(d[i], 'var(--hover-marker-colour)');
+                    });
+
+                    point.addEventListener('mouseout', ()=>{
+                        highlightID(0);
+                    });
+
+                    grid.append(point, name);
+                }
+
+                inputElements.results.append(joiner, grid);
+
+            } else {
+                inputElements.results.innerHTML = '<div class="sb-text">No bridges found in that radius.</div>';
+            }
             
         })
         .catch(error=>{
             console.log(error);
             sb.swapTemplate('error', 'Failed to create a path!');
         });
+}
+
+// Class quick create
+function el(_class, tag='div') {
+    let node = document.createElement(tag);
+    node.className = _class;
+    return node;
 }
 
 // Initial load
@@ -298,14 +337,14 @@ function connect() {
     });
 }
 
-function highlightID(id) {
+function highlightID(id, colour='var(--active-marker-colour)') {
     if (activeMarker){
         circleMarkers[activeMarker].setStyle({ color: pathMarkers.includes(activeMarker) ? 'var(--path-marker-colour)' : 'var(--bridge-marker-colour)'});
     }
 
     if (id) {
         activeMarker = id;
-        circleMarkers[id].setStyle({ color: 'var(--active-marker-colour)'}).bringToFront();
+        circleMarkers[id].setStyle({ color: colour}).bringToFront();
     }
 }
 

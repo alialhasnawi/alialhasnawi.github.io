@@ -1,9 +1,10 @@
 :root{
-    --bridge-marker-colour: #319bffdc;
+    --bridge-marker-colour: #52a2ec;
     --active-marker-colour: #ff8181;
     --area-selector-colour: #ff6262;
     --active-path-colour: #ff9d4d;
     --path-marker-colour: #ffc881;
+    --hover-marker-colour: #06d343;
 }
 
 html, body {
