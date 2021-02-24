@@ -329,9 +329,13 @@ function el(_class, tag='div') {
 // Initial load
 function connect() {
     fetch(PATH).then((d)=>{
-        let mapE = document.querySelector('#map-box');
-        mapE.style.opacity = '1.0';
-        mapE.style.pointerEvents = 'auto';
+        let blocker = document.querySelector('#blocker');
+        blocker.style.opacity = '0.0';
+        
+        setTimeout(()=>{
+            blocker.remove();
+        }, 500);
+
         sb.swapStatic('instructions');
     }).catch(error=>{
         console.log(error);

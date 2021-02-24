@@ -26,9 +26,16 @@ body {
     width: 70vw;
     height: 100vh;
     box-shadow: -3px 0px 18px #dddddd;
-    opacity: 0.3;
-    transition: 500ms ease-in-out opacity;
-    pointer-events: none;
+}
+
+#blocker {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2000;
+    background-color: #000000;
+    opacity: 0.2;
+    transition: 500ms opacity;
 }
 
 #controls-wrapper {
