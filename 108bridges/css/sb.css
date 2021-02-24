@@ -240,6 +240,7 @@ tr:nth-child(even) {
     display: flex;
     justify-content: center;
     width: 12px;
+    min-width: 12px;
     height: 8px;
     border: 6px solid var(--bridge-marker-colour);
     border-radius: 8px;
