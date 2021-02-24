@@ -285,23 +285,25 @@ function getRoute() {
                 let grid = el('sb-path-grid');
 
                 for (let i = 0; i < d.length; i++) {
+                    let wrap = el('sb-path-wrap');
                     let point = el('sb-path-point');
                     let name = el('sb-path-name');
                     name.append(b[d[i]][B_NAME]);
 
-                    point.addEventListener('click', ()=>{
+                    wrap.addEventListener('click', ()=>{
                         getBridge(d[i]);
                     });
 
-                    point.addEventListener('mouseover', ()=>{
+                    wrap.addEventListener('mouseover', ()=>{
                         highlightID(d[i], 'var(--hover-marker-colour)');
                     });
 
-                    point.addEventListener('mouseout', ()=>{
+                    wrap.addEventListener('mouseout', ()=>{
                         highlightID(0);
                     });
 
-                    grid.append(point, name);
+                    wrap.append(point, name)
+                    grid.append(wrap);
                 }
 
                 inputElements.results.append(joiner, grid);
