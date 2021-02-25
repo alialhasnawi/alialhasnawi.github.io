@@ -337,6 +337,10 @@ function connect() {
         }, 500);
 
         sb.swapStatic('instructions');
+
+        document.querySelector('#helper-button').addEventListener('click', ()=>{
+            sb.swapStatic('instructions');
+        });
     }).catch(error=>{
         console.log(error);
         sb.swapTemplate('error', 'Unable to reach server!');
