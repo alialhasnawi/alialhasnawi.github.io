@@ -338,7 +338,7 @@ function connect() {
 
         sb.swapStatic('instructions');
 
-        document.querySelector('#helper-button').addEventListener('click', ()=>{
+        document.querySelector('#help-button').addEventListener('click', ()=>{
             sb.swapStatic('instructions');
         });
     }).catch(error=>{
