@@ -72,3 +72,20 @@ export function clear(e) {
 
 export const div = (c, b) => make('div', c, b);
 export const span = (c, b) => make('span', c, b);
+
+/**
+ * Return tag-free markup
+ * @param {String} h markup
+ */
+export function wash(h) {
+    return h.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+};
+
+/**
+ * Return node from template.
+ */
+export function h(t,...m) {
+    let l = document.createElement('template');
+    l.innerHTML = String.raw(t, ...m);
+    return l.content.firstChild;
+}
