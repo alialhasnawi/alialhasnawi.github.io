@@ -57,7 +57,8 @@ sb.addStatic('loading', `<div class="sb" id="sb-loading">
 
 sb.addStatic('instructions', `<div class="sb" id="sb-instructions">
 <div class="sb-title">108bridges Visual Tool</div>
-<div class="sb-text">A simple map UI for A1 of CSC108!</div>
+<div class="sb-text">A simple map UI for A2* of CSC108!</div>
+<div class="sb-text">*this is not a school project, but a tool for visualizing data used in the project</div>
 <div class="sb-header">How to Use</div>
 <div class="sb-text">View details about a bridge by clicking on it's location on the map.</div>
 <div class="sb-text">To plan an inspection route of the worst BCI bridges, click on the orange marker and use the sidebar controls.</div>
