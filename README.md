@@ -1,7 +1,6 @@
 # alialhasnawi.github.io
 
-This is just a test site for learning basic web development. Why don't you **[visit it?](https://alialhasnawi.github.io/)**
-The  website is built using the holy trinity of HTML, CSS, and Javascript.
+This is just a test site for learning basic web development and for project showcases. Why don't you **[visit it?](https://alialhasnawi.github.io/)**
 
 ### Current Projects
 1. **[108bridges](https://alialhasnawi.github.io/108bridges/)** *Ontario bridge data explorer*
