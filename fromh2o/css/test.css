@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#test-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid lightcoral;
+}
+
+#test-out {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
