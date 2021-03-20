@@ -9,7 +9,7 @@ export function make(a, c, b) {
 
     if (typeof(c) == 'string') {
         e.className = c;
-    } else {
+    } else if (c) {
         p(e, c);
     }
 
@@ -59,7 +59,7 @@ export function addAll(e, c) {
  * Clear all children in parent
  * @param {Element} e parent
  */
-export function clear(e) {
+export function clearAll(e) {
     while (true) {
         let c = e.firstElementChild;
         if (c) {
