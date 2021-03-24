@@ -9,16 +9,27 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <div id="full-view">
+    <div id="half-controls">
     <test>
-        <div id="test-in">
-            <input type="range" name="volume" id="test-slide" min="0" max="7" value="0" step="any">
-            <div id="test-out">
-                none
+        <div id="test-body">
+            <div id="test-in">
+                <input type="range" name="volume" id="test-slide" min="0" max="7" value="0" step="any">
+                <div id="test-out">
+                    none
+                </div>
             </div>
         </div>
     </test>
+    </div>
+    <div id="half-view">
+
+    </div>
+    </div>
 </body>
 
+<script src="js/three.js"></script>
+<script src="js/GLTFLoader.js"></script>
 <script src="js/main.js" type="module"></script>
 
 </html>

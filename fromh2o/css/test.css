@@ -1,7 +1,9 @@
-body {
+#test-body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
 }
 
 #test-in {
@@ -10,10 +12,17 @@ body {
     justify-content: center;
     align-items: center;
     border: 2px solid lightcoral;
+    width: 30vw;
+    padding: 12px;
+}
+
+#test-in > input[type="range"] {
+    width: 100%;
 }
 
 #test-out {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-self: flex-start;
+    margin-left: 10vw;
 }
