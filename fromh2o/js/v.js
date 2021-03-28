@@ -98,6 +98,40 @@ export class Volume {
     }
 }
 
-const GaltoL = gal => 3.78541 * gal;
+/**
+ * Format number and truncate decimals
+ * @param {Number} volume volume in gallons
+ * @returns 
+ */
+export function format(volume, unit='US gallons') {
+    let denom;
+    let three;
+
+    if (volume < 1000) {
+        denom = '';
+        three = volume;
+    } else if (volume < 1000000) {
+        denom = 'thousand';
+        three = volume / 1000;
+    } else if (volume < 1000000000) {
+        denom = 'million';
+        three = volume / 1000000;
+    } else if (volume < 1000000000000) {
+        denom = 'billion';
+        three = volume / 1000000000;
+    } else if (volume < 1000000000000000) {
+        denom = 'trillion';
+        three = volume / 1000000000000;
+    } else if (volume < 1000000000000000000) {
+        denom = 'quadrillion';
+        three = volume / 1000000000000000;
+    }
+
+    let value = parseFloat(three).toPrecision(3).split('e')[0];
+
+    return `${value} ${denom} ${unit}`;
+}
+
+export const GaltoL = gal => 3.78541 * gal;
 const GaltoM3 = gal => 0.00378541 * gal;
 const M3toGal = m3 => 264.172 * m3;
