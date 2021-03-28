@@ -5,21 +5,21 @@ export class AnimMan {
 
     #EPSILON;
     #DELTA;
-    #SUPEREPSILON;
     #origins;
     #targets;
+    #functions;
 
     /**
      * 
-     * @param {} epsilon boundary of value change
-     * @param {*} delta 
+     * @param {Number} epsilon boundary of value change
+     * @param {Number} delta change increment
      */
-    constructor(epsilon=0.01, delta=0.05, superepsilon=0.001) {
+    constructor(epsilon=0.01, delta=0.05) {
         this.#EPSILON = epsilon;
         this.#DELTA = delta;
-        this.#SUPEREPSILON = superepsilon;
         this.#origins = {};
         this.#targets = {};
+        this.#functions = {};
     }
 
     /**
@@ -27,8 +27,11 @@ export class AnimMan {
      * @param {String} name id of animation origin
      * @param {Vector3} vector origin vector3 {x, y, z} object
      */
-    origin(name, vector) {
+    origin(name, vector, func=undefined) {
         this.#origins[name] = vector;
+        if (func) {
+            this.#functions[name] = func;
+        }
     }
 
     /**
@@ -53,21 +56,29 @@ export class AnimMan {
             let dz = target.z - origin.z;
 
             if (Math.abs(dx) < this.#EPSILON) {
-                origin.x = target.x + this.#SUPEREPSILON;
+                origin.x = target.x;
             } else {
                 origin.x += this.#DELTA * (target.x - origin.x);
             }
 
             if (Math.abs(dy) < this.#EPSILON) {
-                origin.y = target.y + this.#SUPEREPSILON;
+                origin.y = target.y;
             } else {
                 origin.y += this.#DELTA * (target.y - origin.y);
             }
 
             if (Math.abs(dz) < this.#EPSILON) {
-                origin.z = target.z + this.#SUPEREPSILON;
+                origin.z = target.z;
             } else {
                 origin.z += this.#DELTA * (target.z - origin.z);
+            }
+
+            if (origin.x == target.x && origin.y == target.y && origin.z == target.z) {
+                delete this.#targets[name];
+            }
+
+            if (this.#functions[name]) {
+                this.#functions[name](origin);
             }
         }
     }
@@ -80,9 +91,15 @@ export class AnimMan {
 function normalize(vector) {
     let nv = {};
 
-    nv.x = parseFloat(vector.x);
-    nv.y = parseFloat(vector.y);
-    nv.z = parseFloat(vector.z);
+    if (Array.isArray(vector)){
+        nv.x = parseFloat(vector[0]);
+        nv.y = parseFloat(vector[1]);
+        nv.z = parseFloat(vector[2]);
+    } else {
+        nv.x = parseFloat(vector.x);
+        nv.y = parseFloat(vector.y);
+        nv.z = parseFloat(vector.z);
+    }
 
     return nv;
 }
