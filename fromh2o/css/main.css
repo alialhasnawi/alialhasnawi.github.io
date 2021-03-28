@@ -1,5 +1,5 @@
 /*
-*   format: size, then layout, then spacing/borders, then special
+*   format: size, then layout, then spacing/borders/background, then special, then format
 *
 */
 
@@ -16,6 +16,8 @@ body {
     margin: 0px;
 
     overflow: hidden;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #full-view {
@@ -44,4 +46,29 @@ body {
     height: 100vh;
 
     background-color: lightpink;
+}
+
+#v-text {
+    width: 100vh;
+    height: 20vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    margin: 2vh;
+
+    position: absolute;
+    bottom: 0px;
+
+    color: #76c8d6;
+}
+
+#v-text-name {
+    font-size: 5vh;
+}
+
+#v-text-volume {
+    font-size: 4vh;
 }
