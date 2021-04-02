@@ -4,20 +4,34 @@ import * as AniM from './animman.js';
 
 // TESTING BLOCK
 {
-    const inslide = document.querySelector('#test-slide');
-    const outtest = document.querySelector('#test-out');
+    // const inslide = document.querySelector('#test-slide');
+    // const outtest = document.querySelector('#test-out');
 
-    inslide.addEventListener('input', ()=>{
-        let value = 37 ** inslide.value - 1;
-        vTool.volume = value;
+    // inslide.addEventListener('input', ()=>{
+    //     let value = 37 ** inslide.value - 1;
+    //     vTool.volume = value;
         
-        let outs = `${Number.parseFloat(value).toPrecision(3)}gal
-        Container:\t${vTool.id}
-        Capacity:\t${Math.round(vTool.capacity * 100)}%
-        Height:\t${Number.parseFloat(vTool.height).toPrecision(3)}m`;
+    //     let outs = `${Number.parseFloat(value).toPrecision(3)}gal
+    //     Container:\t${vTool.id}
+    //     Capacity:\t${Math.round(vTool.capacity * 100)}%
+    //     Height:\t${Number.parseFloat(vTool.height).toPrecision(3)}m`;
 
-        outtest.innerText = outs;
+    //     outtest.innerText = outs;
         
+    //     updateWater(vTool.id, vTool.height, vTool.volume);
+    // });
+
+    const involumequantity = document.querySelector('#v-in-volume-wrapper');
+    const incustomquantity = document.querySelector('#v-in-volume-custom');
+    const incustomradio = document.querySelector('#v-in-volume-custom-dummy');
+
+    incustomquantity.addEventListener('input', (e)=>{
+        incustomradio.checked = true;
+    });
+    
+    involumequantity.addEventListener('input', (e)=>{
+        let value = Number.isNaN(parseFloat(e.target.value)) ? 0.0 : e.target.value; 
+        vTool.volume = parseFloat(value);
         updateWater(vTool.id, vTool.height, vTool.volume);
     });
 }
@@ -32,7 +46,7 @@ const VOLUMES = [
     new V.Volume('house', 113.97, 4.4),
     new V.Volume('pool', 1250.0, 2.9),
     new V.Volume('arena', 16084.95, 48),
-    new V.Volume('cn', 22500, 538),
+    new V.Volume('cn', 22500, 528),
     new V.Volume('central', 3200000.0, 800),
     new V.Volume('cube', 3600000000, 60000)
 ];

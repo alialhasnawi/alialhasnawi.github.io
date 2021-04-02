@@ -1,7 +1,12 @@
 /*
 *   format: size, then layout, then spacing/borders/background, then special, then format
-*
 */
+
+:root {
+    --mid-blue-col: #76c8d6;
+    --light-blue-col: #c7ebf1; 
+    --v-light-blue-col: #e7f9fc;
+}
 
 html {
     width: 100%;
@@ -39,13 +44,17 @@ body {
     height: 100vh;
 
     background-color: black;
+
+    z-index: 10;
+
+    box-shadow: #e9e9e9 0px 0px 16px 8px;
 }
 
 #half-controls {
     width: calc(100vw - 100vh);
     height: 100vh;
 
-    background-color: lightpink;
+    overflow-y: scroll;
 }
 
 #v-text {
@@ -62,7 +71,7 @@ body {
     position: absolute;
     bottom: 0px;
 
-    color: #76c8d6;
+    color: var(--mid-blue-col);
 }
 
 #v-text-name {
@@ -71,4 +80,73 @@ body {
 
 #v-text-volume {
     font-size: 4vh;
+}
+
+input[type="radio"] {
+    width: 0px;
+}
+
+label {
+    min-height: 5vh;
+    width: 100%;
+
+    display: grid;
+    place-items: center;
+    text-align: left;
+
+    margin: 8px;
+    padding: 12px;
+
+    border: var(--light-blue-col) solid;
+    border-width: 0px 2px 2px 0px;
+    border-radius: 16px;
+
+    box-shadow: #ebebeb 3px 3px 6px;
+
+    font-size: 1.5vw;
+    color: var(--mid-blue-col);
+
+    cursor: pointer;
+
+    transition-property: transform background-color box-shadow;
+    transition-duration: 100ms;
+}
+
+label:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--v-light-blue-col) 3px 3px 12px;
+}
+
+input:checked + label {
+    background-color: var(--v-light-blue-col);
+}
+
+input[type="number"] {
+    width: 70%;
+    font-size: 3vh;
+
+    outline: none;
+    border: white solid 3px;
+    border-radius: 5px;
+
+    text-align: center;
+
+    color: var(--mid-blue-col);
+}
+
+/* Volume Units */
+
+
+
+/* Volume Quantity */
+
+#v-in-volume-wrapper {
+    width: 90%;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: 0fr 6fr;
+    place-items: center center;
+
+    padding: 12px;
 }

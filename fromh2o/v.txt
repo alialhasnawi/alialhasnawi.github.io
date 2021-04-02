@@ -22,16 +22,13 @@
 
 PLANNED:
 
-0. water jug
 1. bathtub
 2. house
-3. olmypic swimming pool
-    > something here
+3. olmypic swimming pool?
 4. coliseum
-5. hoover dam?
 5. central park?
 6. new york city?
-6. tokyo metropolitan area?
+OR tokyo metropolitan area?
 7. all freshwater on earth
     > maybe some country?
 8. earth?
