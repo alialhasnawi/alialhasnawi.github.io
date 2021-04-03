@@ -2,7 +2,7 @@ import * as E from './esrc.js';
 import * as V from './v.js';
 import * as AniM from './animman.js';
 
-// TESTING BLOCK
+// TESTING BLOCK / DOM
 {
     // const inslide = document.querySelector('#test-slide');
     // const outtest = document.querySelector('#test-out');
@@ -205,6 +205,3 @@ function animate() {
 }
 
 animate();
-
-
-//-------------------------DOM-------------------------//

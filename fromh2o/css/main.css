@@ -134,11 +134,25 @@ input[type="number"] {
     color: var(--mid-blue-col);
 }
 
-/* Volume Units */
+.v-in-text {
+    width: auto;
+    height: auto;
 
+    display: flex;
+    place-content: center center;
 
+    padding: 14px;
 
-/* Volume Quantity */
+    color: var(--mid-blue-col);
+
+    font-size: 1.2vw;
+}
+
+.v-in-big {
+    color: var(--light-blue-col);
+
+    font-size: 2vw;
+}
 
 #v-in-volume-wrapper {
     width: 90%;
