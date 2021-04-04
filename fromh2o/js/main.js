@@ -31,7 +31,7 @@ import * as AniM from './animman.js';
     
     involumequantity.addEventListener('input', (e)=>{
         let value = Number.isNaN(parseFloat(e.target.value)) ? 0.0 : e.target.value; 
-        vTool.volume = parseFloat(value);
+        vTool.volume = Math.max(parseFloat(value), 0.0);
         updateWater(vTool.id, vTool.height, vTool.volume);
     });
 }
