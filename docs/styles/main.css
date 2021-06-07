@@ -1,0 +1,266 @@
+/*
+CSS Style Template
+
+selector {
+    dimension props;
+
+    layout and flow props;
+
+    margin, padding, border props;
+
+    color and font props;
+}
+*/
+
+:root {
+    --border-colour: #dddddd;
+    --light-colour: #c2c2c2;
+    --mid-colour: #969696;
+    --dark-colour: #808080;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+/******* BANNER *******/
+
+.banner-container {
+    width: 100vw;
+    height: 25vh;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-bottom: var(--border-colour) solid 2px;
+    box-shadow: inset 0px -8px 16px -8px #d6d6d6;
+}
+
+.banner-title {
+    height: 40%;
+
+    display: flex;
+    flex: 1 0 auto;
+
+    flex-direction: column;
+
+    margin: 2vh;
+
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.banner-title-span {
+    font-size: min(12vw, 80px);
+}
+
+.banner-subtitle-span {
+    font-size: min(5vw, 36px);
+}
+
+.banner-flamingo {
+    width: 120px;
+
+    display: flex;
+    flex: 0 1 auto;
+
+    justify-self: flex-end;
+    align-self: flex-end;
+
+    margin-right: 4vw;
+
+    transition: transform 3s;
+}
+
+.banner-flamingo:hover {
+    transform: translate(200px, 30%) scale(0.4);
+}
+
+.banner-flamingo-text {
+    position: absolute;
+    right: 100px;
+    top: calc(25vh - 120px);
+
+    display: none;
+
+    color: #ec73ec;
+}
+
+.banner-flamingo:hover + .banner-flamingo-text {
+    display: block;
+}
+
+/******* TECHS *******/
+
+.tech-container {
+    width: 100vw;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    padding: 2vw 0vw 2vw 0vw;
+}
+
+.tech-section {
+    width: 40%;
+
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin: 16px;
+    padding: 16px;
+    border: 1px solid #f7f7f7;
+    border-radius: 16px;
+
+    box-shadow: 2px 4px 8px 2px #e4e4e454;
+}
+
+.tech-title {
+    margin-bottom: 12px;
+
+    text-align: center;
+    font-size: min(8vw, 24px)
+}
+
+.tech-collection {
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tech-tech, .tech-inline {
+    margin: 8px;
+    padding: 6px;
+    border-radius: 16px 6px 16px 6px;
+    border: 3px solid var(--light-colour);
+    border-width: 0px 1px 3px 0px;
+
+    background-color: #f5f5f5;
+
+    color: var(--dark-colour);
+}
+
+.tech-inline {
+    padding: 4px;
+    margin: 0px;
+
+    font-size: 12px;
+}
+
+/******* PROJECTS *******/
+
+.project-container {
+    width: 90vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 16px 0px 24px 0px;
+    border-top: 4px solid var(--border-colour);
+}
+
+.project-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+
+    margin: 12px 0px 12px 0px;
+}
+
+.project-icon {
+    width: 10vh;
+
+    margin-right: 12px;
+}
+
+.project-title {
+    color: var(--light-colour);
+    font-size: 200%;
+}
+
+.project-content {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.project-text {
+    flex: 1 2 50%;
+
+    line-height: 1.5;
+
+    margin-right: 2vw;
+
+    color: var(--dark-colour);
+}
+
+.project-sidenote {
+    font-size: smaller;
+
+    color: var(--mid-colour);
+}
+
+.project-sidenote::before {
+    content: "*";
+
+    color: #e74040;
+}
+
+.project-img {
+    width: min(85vw, 280px);
+
+    flex: 1 0 auto;
+
+    object-fit: cover;
+
+    box-shadow: 2px 4px 8px 2px #e4e4e4a8;
+}
+
+/******* OTHER *******/
+@font-face {
+    font-family: undertale;
+    src: url("piano/res/sans-undertale.ttf");
+}
+  
+@font-face {
+    font-family: nunito;
+    src: url("animal/res/nunito.ttf");
+}
+
+.font-undertale {
+    font-family: undertale;
+    font-size: larger;
+}
+
+a {
+    text-decoration: none;
+    transition: transform 200ms;
+}
+
+a:hover {
+    transform: translateY(-8px) scale(1.03);
+}

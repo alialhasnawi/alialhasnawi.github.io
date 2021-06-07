@@ -1,117 +1,167 @@
-<!DOCTYPE html>
-
-<html lang="en" dir="ltr">
-
-  <head>
-    <meta name="google-site-verification" content="3bl_8KxZEcH4l249nR_bl5RDSH_LegJHCtKAA7ZhLM0" />
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ali Al-Hasnawi</title>
-  </head>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/svg" href="res/flamingo.png">
+</head>
 
-  <body>
-    <div class="banner">
-      ☟ Ali's Testing Site ☟
-      <small>made by me, ali al-hasnawi :))</small>
-    </div>
-    <div class="menu">
+<!--
+    THANK YOU,
 
-      <div class="page">
-        <a href="108bridges">
-          <div class="page-preview">
-            <img src="res/108.svg" alt="108bridges" draggable="false">
-          </div>
-          <div class="page-titles">
-            <div class="page-title">
-              108bridges
+    for deciding to read this website's markup.
+    I hope you have a great day.
+    If you have any questions for me, feel free to contact me,
+    because there's no way that you found this site
+    without first meeting me.
+
+    <3, Ali Al-Hasnawi
+
+    ^~____~^
+    (ō <> ō)    <(a little bird)
+    (_>  <_)
+-->
+
+<body>
+    <header class="banner-container">
+        <div class="banner-title">
+            <span class="banner-title-span">hi, I'm Ali</span>
+            <span class="banner-subtitle-span">and I do stuff sometimes...</span>
+        </div>
+        <img class="banner-flamingo" src="res/flamingo.png" alt="flamingoes">
+        <div class="banner-flamingo-text">we're shy!</div>
+    </header>
+
+    <section class="tech-container">
+        <div class="tech-section tech-old">
+            <div class="tech-title">stuff I've used</div>
+            <div class="tech-collection">
+                <div class="tech-tech">python</div>
+                <div class="tech-tech">javascript</div>
+                <div class="tech-tech">nodejs</div>
+                <div class="tech-tech">sockets</div>
+                <div class="tech-tech">css/html</div>
+                <div class="tech-tech">bash</div>
             </div>
-            <div class="secret-title">
-              for CSC108
+        </div>
+        <div class="tech-section tech-new">
+            <div class="tech-title">stuff I'm learning right now</div>
+            <div class="tech-collection">
+                <div class="tech-tech">C++</div>
+                <div class="tech-tech">ML</div>
+                <div class="tech-tech">GLSL</div>
             </div>
-          </div>
-          <div class="page-text">
-            UI and API for exploring Ontario bridge construction data. (takes 30 seconds on first load because of free hosting :| )
-          </div>
+        </div>
+    </section>
+
+    <section class="project-container">
+        <a class="project-header" href="108bridges" target="_blank">
+            <img class="project-icon" src="res/108.svg" alt="icon">
+            <div class="project-title">108bridges</div>
         </a>
-      </div>
+        <div class="project-content">
+            <div class="project-text">
+                A UI for exploring Ontario bridge data.
+                Interfaces with an API written in
+                <span class="tech-inline">python</span>.
+                The interactive map was built using
+                <span class="tech-inline">Leaflet</span>.
+                Can be used to view individual bridge details,
+                (like construction history and specifications),
+                as well as plot a route between bridges in the worst
+                condition. Project was originally developed in a week,
+                for fun!
+                <br><br>
+                <span class="project-sidenote">
+                    API runs on a <span class="tech-inline">Heroku</span>
+                    free tier dynamo, so expect a 30s wait-time on first load.
+                </span><br>
+            </div>
+            <img class="project-img" src="res/108ss.png" alt="screenshot">
+        </div>
+    </section>
 
-      <div class="page">
-        <a href="watch">
-          <div class="page-preview">
-            <img src="res/watch.svg" alt="watch it with me" draggable="false">
-          </div>
-          <div class="page-titles">
-            <div class="page-title">
-              watchitiwithme!
-            </div>
-            <div class="secret-title">
-              yes there's an extra i
-            </div>
-          </div>
-          <div class="page-text">
-            Synchronized video chatrooms for social distancing. (takes 30 seconds on first load because of free hosting :| )
-          </div>
+    <section class="project-container">
+        <a class="project-header" href="watch" target="_blank">
+            <img class="project-icon" src="res/watch.svg" alt="icon">
+            <div class="project-title">watchitiwithme</div>
         </a>
-      </div>
+        <div class="project-content">
+            <div class="project-text">
+                I wanted to watch movies with my friends during quarantine,
+                so I made this. Uses
+                <span class="tech-inline">sockets</span>
+                for the chat (with custom emojis!) and video synchronization.
+                The <span class="tech-inline">nodejs</span> server
+                also has a <span class="tech-inline">puppeteer</span>
+                webscraper for getting video source links. Designed to work
+                only for exposed direct mp4 links. Is also compatible
+                with external <span class="tech-inline">.srt</span> captions.
+                <br><br>
+                <span class="project-sidenote">
+                    Server runs on a <span class="tech-inline">Heroku</span>
+                    free tier dynamo, so expect a 30s wait-time on first load.
+                </span><br>
+            </div>
+            <img class="project-img" src="res/watchss.png" alt="screenshot">
+        </div>
+    </section>
 
-      <div class="page">
-        <a href="fromh2o">
-          <div class="page-preview">
-            <img src="res/fromh2o.svg" alt="fromh2o" draggable="false">
-          </div>
-          <div class="page-titles">
-            <div class="page-title">
-              fromH2O
-            </div>
-            <div class="secret-title">
-              for UTM197
-            </div>
-          </div>
-          <div class="page-text">
-            <span>3D volume visualizer. Can visualize anything from 1.0 to 5.7×10<sup>16</sup> gallons. Predefined sizes included!</span>
-          </div>
+    <section class="project-container">
+        <a class="project-header" href="fromh2o" target="_blank">
+            <img class="project-icon" src="res/fromh2o.svg" alt="icon">
+            <div class="project-title">fromH2O</div>
         </a>
-      </div>
+        <div class="project-content">
+            <div class="project-text">
+                A nice tool for visualizing large volumes ranging from
+                1 to 10<sup>16</sup> gallons. Uses
+                <span class="tech-inline">threejs</span> for rendering.
+                Super lightweight and lowpoly, and comes with some
+                predefined sizes as well.
+                <br>
+            </div>
+            <img class="project-img" src="res/fromh2oss.png" alt="screenshot">
+        </div>
+    </section>
 
-      <div class="page">
-        <a href="animal">
-          <div class="page-preview">
-            <img src="res/animal.svg" alt="animal crossing" draggable="false">
-          </div>
-          <div class="page-titles">
-            <div class="page-title animal-font">
-              animalese generator
-            </div>
-            <div class="secret-title animal-font">
-              sounds just like them !
-            </div>
-          </div>
-          <div class="page-text">
-            Speaks whatever piece of text you want using Animal Crossing villager noises. Now with customizeable pitch!
-          </div>
+    <section class="project-container">
+        <a class="project-header"  href="animal" target="_blank">
+            <img class="project-icon" src="res/animal.svg" alt="icon">
+            <div class="project-title">animalese generator</div>
         </a>
-      </div>
+        <div class="project-content">
+            <div class="project-text">
+                Have you ever wanted to sound like an animal
+                straight out of Animal Crossing™? Text-to-animalese sounds
+                with a cute little dialogue box to boot. Uses the
+                <span class="tech-inline">Web Audio API</span> for
+                audio playback. Also has customizable pitch! and some
+                secrets...
+                <br>
+            </div>
+            <img class="project-img" src="res/animalss.png" alt="screenshot">
+        </div>
+    </section>
 
-      <div class="page">
-        <a href="piano">
-          <div class="page-preview">
-            <img src="res/piano.svg" alt="piano" draggable="false">
-          </div>
-          <div class="page-titles">
-            <div class="page-title undertale-font">
-              just a regular piano
-            </div>
-            <div class="secret-title undertale-font">
-              nothing to see here, folks
-            </div>
-          </div>
-          <div class="page-text">
-            This is just a completely regular piano. There's nothing to see here folks. Go ahead, try it out...
-          </div>
+    <section class="project-container">
+        <a class="project-header">
+             <img class="project-icon" src="res/piano.svg" alt="icon">
+            <div class="project-title">just a regular piano</div>
         </a>
-      </div>
-
-    </div>
-  </body>
-
+        <div class="project-content">
+            <div class="project-text">
+                My first ever web dev project! It's just a simple piano.
+                Press a key, it plays a note. Built with the
+                <span class="tech-inline">tonejs</span> library.
+                Trust me, I promise it's <span class="font-undertale">just a regular piano</span>.
+                ;)
+                <br>
+            </div>
+            <img class="project-img" src="res/pianoss.png" alt="screenshot">
+        </div>
+    </section>
+</body>
 </html>
