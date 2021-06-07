@@ -243,12 +243,12 @@ body {
 /******* OTHER *******/
 @font-face {
     font-family: undertale;
-    src: url("/docs/piano/res/sans-undertale.ttf");
+    src: url("../piano/res/sans-undertale.ttf");
 }
   
 @font-face {
     font-family: nunito;
-    src: url("/docs/animal/res/nunito.ttf");
+    src: url("../animal/res/nunito.ttf");
 }
 
 .font-undertale {
