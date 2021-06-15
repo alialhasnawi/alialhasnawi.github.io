@@ -89,7 +89,7 @@ function get_voices() {
         window.setInterval(() => {
             let pending_voices = synth.getVoices();
             if (pending_voices.length != 0) {
-                resolve(pending_voices.filter(e=>e.lang.slice(0, 2) == 'en'));
+                resolve(pending_voices.filter(e=>(e.lang.slice(0, 2) == 'en' && !e.name.startsWith("Google"))));
             }
         }, 20);
 
