@@ -190,3 +190,6 @@ function generate_query(params) {
 }
 
 init();
+if (synth.onvoiceschanged != undefined) {
+    synth.onvoiceschanged = init;
+}
