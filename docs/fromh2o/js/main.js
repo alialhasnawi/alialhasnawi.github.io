@@ -1,4 +1,3 @@
-import * as E from './esrc.js';
 import * as V from './v.js';
 import * as AniM from './animman.js';
 
