@@ -95,6 +95,7 @@ function get_voices() {
 
         window.setTimeout(() => {
             if (voices.length == 0) {
+                controller.innerText = "Sorry, I couldn't find any voices on this device.";
                 throw new Error('No voices found!')
             }
         }, 5000);
