@@ -7,7 +7,7 @@ const READ_WRITE_KEY = 'TSKTASK_TASK_STORAGE';
 
 export class TaskManager extends El {
     /** @type {Task} */
-    #first_task;
+    __first_task;
 
 
     /**
@@ -16,7 +16,7 @@ export class TaskManager extends El {
      */
     constructor(element) {
         super(element);
-        this.#first_task = undefined;
+        this.__first_task = undefined;
         this.read_storage();
     }
 
@@ -28,18 +28,18 @@ export class TaskManager extends El {
      * @param {Date} duration Date object of duration.
      */
     add(name, start_time, duration) {
-        let curr_task = this.#first_task;
+        let curr_task = this.__first_task;
         const inserted_task = new Task(name, start_time, duration);
         this.dom_task(inserted_task);
 
         // Empty schedule.
         if (!curr_task) {
-            this.#first_task = inserted_task;
+            this.__first_task = inserted_task;
             this.e.appendChild(inserted_task.e);
         } else {
             // DOM and list manipulations.
             if (start_time.getTime() < curr_task.start_time.getTime()) {
-                this.#first_task = inserted_task;
+                this.__first_task = inserted_task;
                 inserted_task.next = curr_task;
                 curr_task.previous = inserted_task;
                 curr_task.e.insertAdjacentElement('beforebegin', inserted_task.e);
@@ -237,7 +237,7 @@ export class TaskManager extends El {
      * Clear all tasks.
      */
     clear_all() {
-        this.#first_task = undefined;
+        this.__first_task = undefined;
         this.children = undefined;
         this.write_storage();
     }
@@ -333,8 +333,8 @@ export class TaskManager extends El {
      * @return {Block}
      */
     pop(block) {
-        if (block == this.#first_task) {
-            this.#first_task = block.next;
+        if (block == this.__first_task) {
+            this.__first_task = block.next;
             return block;
         }
 
@@ -362,7 +362,7 @@ export class TaskManager extends El {
      * Write the current list of tasks to local storage.
      */
     write_storage() {
-        let curr_task = this.#first_task;
+        let curr_task = this.__first_task;
         const arr = [];
 
         while (curr_task) {
