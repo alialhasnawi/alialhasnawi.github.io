@@ -1,22 +1,22 @@
 /**
  * Create element with tag, class, props.
  * @param {String} tag Element tag.
- * @param {String | Object} class_or_props Class name or props.
  * @param {Object} props Props.
+ * @param {HTMLElement[]} children Children.
  * @returns HTMLElement
+ * Props:
+ *      style: {attribute: value},
+ *      events: {event: function},
  */
-export function make(tag, class_or_props, props) {
+export function x(tag, props_or_children, children) {
     const e = document.createElement(tag);
 
-    if (typeof (class_or_props) == 'string') {
-        e.className = class_or_props;
-    } else if (class_or_props) {
-        p(e, class_or_props);
+    if (props_or_children) {
+        if (Array.isArray(props_or_children)) { addAll(e, props_or_children) }
+        else { p(e, props_or_children) }
     }
 
-    if (props) {
-        p(e, props);
-    }
+    addAll(e, children);
 
     return e;
 }
@@ -24,43 +24,45 @@ export function make(tag, class_or_props, props) {
 /**
  * Apply props to an element.
  * @param {HTMLElement} element Element node.
- * @param {Object} props Props (includeing style).
+ * @param {Object} props Props (including style).
+ * Props:
+ *      style: {attribute: value},
+ *      events: {event: function},
  */
 function p(element, props) {
     for (const k in props) {
-        if (k == 'style') {
-            const s = props[k];
-            for (const j in s) {
-                element.style[j] = s[j];
-            }
-        } else if (k == 'children') {
-            addAll(element, props[k]);
-        } else {
-            element[k] = props[k];
+        switch (k) {
+            case 'style':
+                const s = props[k];
+                for (const j in s) {
+                    if (!(j in element.style)) console.warn(`${j} is not a style property!`);
+                    element.style[j] = s[j];
+                }
+                break;
+
+            case 'events':
+                for (const event in props[k]) {
+                    element.addEventListener(event, props[k][event]);
+                }
+                break;
+
+            default:
+                if (!(k in element)) console.warn(`${k} is not a valid property of an element!`);
+                element[k] = props[k];
         }
     }
 }
 
 /**
- * Create element from class, without props.
- * @param {String} tag Element tag.
- * @param {String} class_string Class name(s).
- * @returns HTMLElement
- */
-export function el(class_string = '', tag = 'div') {
-    const e = document.createElement(tag);
-    e.className = class_string;
-    return e;
-}
-
-/**
  * Add all children to element.
  * @param {HTMLElement} parent_node Parent node.
- * @param {Array<HTMLElement>} children children.
+ * @param {HTMLElement[] | HTMLElement} children children.
  */
 export function addAll(parent_node, children) {
-    for (let i = 0; i < children.length; i++) {
-        parent_node.append(children[i]);
+    if (Array.isArray(children)) {
+        for (let i = 0; i < children.length; i++) parent_node.append(children[i]);
+    } else if (children) {
+        parent_node.append(children);
     }
 }
 
@@ -70,27 +72,9 @@ export function addAll(parent_node, children) {
  */
 export function clearAll(parent_node) {
     while (parent_node.firstElementChild) {
-        parent_node.removeChild(c);
+        parent_node.removeChild(parent_node.firstElementChild);
     }
 }
-
-/**
- * Create div with class, props.
- * @param {String} a Element tag.
- * @param {String | Object} class_string Class name or props.
- * @param {Object} props Props.
- * @returns HTMLElement
- */
-export const div = (class_string, props) => make('div', class_string, props);
-
-/**
- * Create span with class, props.
- * @param {String} a Element tag.
- * @param {String | Object} class_string Class name or props.
- * @param {Object} props Props.
- * @returns HTMLElement
- */
-export const span = (class_string, props) => make('span', class_string, props);
 
 /**
  * Return tag-free sanitized markup.
@@ -115,61 +99,38 @@ export function h(t, ...m) {
  * An element abstractor built for polyfilled Web Componenets.
  */
 export class El {
-    #e;
+    e;
 
     /**
      * Create El element wrapper.
-     * @param {HTMLElement} element Element node, default=unassigned.
+     * @param {HTMLElement} element Element node, default=undefined.
      */
-    constructor(element=undefined) {
-        this.#e = element;
-    }
-
-    /**
-     * Remove this element.
-     */
-    remove() {
-        this.#e.remove();
-    }
-
-    /**
-     * Node representation of this element.
-     * @returns HTMLElement
-     */
-    get html() {
-        return this.#e;
-    }
-
-    /**
-     * Assign HTML directly.
-     * @param {HTMLElement} new_html Element node.
-     */
-    set html(new_html) {
-        this.#e = new_html;
+    constructor(element = undefined) {
+        this.e = element;
     }
 
     /**
      * Children of this element.
-     * @returns HTMLCollection
+     * @returns HTMLElement[]
      */
     get children() {
-        return this.#e.children;
+        return this.e.children;
     }
 
     /**
      * Set the children of this element.
-     * @param {Array<HTMLElement>} children children.
+     * @param {HTMLElement[]} children children.
      */
     set children(children) {
-        clearAll(this.#e);
-        addAll(this.#e, children);
+        clearAll(this.e);
+        addAll(this.e, children);
     }
 
     /**
      * Set additional props.
-     * @param {Object} props_obj Props (includeing style).
+     * @param {Object} props_obj Props (including style).
      */
     set props(props_obj) {
-        p(this.#e, props_obj);
+        p(this.e, props_obj);
     }
 }
