@@ -127,11 +127,6 @@ export class TaskManager extends El {
         if (new_start < block.end_time.getTime()) {
             let curr_task = block.next;
             while (curr_task) {
-                console.log(
-                    new Date(old_start),
-                    new Date(old_end),
-                    new Date(new_start)
-                );
 
                 // Avoid multiple assignment logic error.
                 let temp_end_time = curr_task.end_time.getTime();
