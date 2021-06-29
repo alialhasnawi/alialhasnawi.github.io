@@ -17,7 +17,7 @@ export class TaskManager extends El {
     constructor(element) {
         super(element);
         this.#first_task = undefined;
-        this.#read_storage();
+        this.read_storage();
     }
 
     /**
@@ -30,7 +30,7 @@ export class TaskManager extends El {
     add(name, start_time, duration) {
         let curr_task = this.#first_task;
         const inserted_task = new Task(name, start_time, duration);
-        this.#dom_task(inserted_task);
+        this.dom_task(inserted_task);
 
         // Empty schedule.
         if (!curr_task) {
@@ -49,7 +49,7 @@ export class TaskManager extends El {
                     curr_task = curr_task.next;
 
                 // Insert node.
-                this.#insert_between(curr_task, inserted_task);
+                this.insert_between(curr_task, inserted_task);
                 curr_task.e.insertAdjacentElement('afterend', inserted_task.e);
 
                 // Trim block before.
@@ -70,7 +70,7 @@ export class TaskManager extends El {
             }
         }
 
-        this.#write_storage();
+        this.write_storage();
     }
 
     /**
@@ -78,10 +78,10 @@ export class TaskManager extends El {
      * @param {Block} block block to be deleted.
      */
     remove_static(block) {
-        this.#pop(block);
+        this.pop(block);
 
         block.e.remove();
-        this.#write_storage();
+        this.write_storage();
     }
 
     /**
@@ -89,7 +89,7 @@ export class TaskManager extends El {
      * @param {Block} block block to be deleted.
      */
     remove_constant_shift(block) {
-        this.#pop(block);
+        this.pop(block);
         const delta = block.end_time.getTime() - Math.max(block.start_time.getTime(), Date.now());
 
         if (delta > 0) {
@@ -102,7 +102,7 @@ export class TaskManager extends El {
         }
 
         block.e.remove();
-        this.#write_storage();
+        this.write_storage();
     }
 
     /**
@@ -110,7 +110,7 @@ export class TaskManager extends El {
      * @param {Block} block block to be deleted.
      */
     remove_dynamic_shift(block) {
-        this.#pop(block);
+        this.pop(block);
 
         // Start of tasks after the deleted task.
         const old_start = block.end_time.getTime();
@@ -135,15 +135,15 @@ export class TaskManager extends El {
 
                 // Avoid multiple assignment logic error.
                 let temp_end_time = curr_task.end_time.getTime();
-                curr_task.start_time = this.#t_lerp(old_start, old_end, new_start, curr_task.start_time.getTime());
-                curr_task.end_time = this.#t_lerp(old_start, old_end, new_start, temp_end_time);
+                curr_task.start_time = this.t_lerp(old_start, old_end, new_start, curr_task.start_time.getTime());
+                curr_task.end_time = this.t_lerp(old_start, old_end, new_start, temp_end_time);
 
                 curr_task = curr_task.next;
             }
         }
 
         block.e.remove();
-        this.#write_storage();
+        this.write_storage();
     }
 
     /**
@@ -151,7 +151,7 @@ export class TaskManager extends El {
      * @param {String} msg Error message. 
      */
     warn_message(msg) {
-        this.#dom_overlay(x('div', { className: 'task-error', textContent: msg }));
+        this.dom_overlay(x('div', { className: 'task-error', textContent: msg }));
     }
 
     /**
@@ -173,7 +173,7 @@ export class TaskManager extends El {
             }
         });
 
-        this.#dom_overlay(x('div', { className: 'task-create-wrapper' }, [
+        this.dom_overlay(x('div', { className: 'task-create-wrapper' }, [
             x('div', { className: 'task-create-title task-create-centred', textContent: task ? 'Edit Task' : 'New Task' }),
             x('div', { className: 'task-create-label task-create-aligned', textContent: 'Starts at' },
                 x('span', { className: 'task-create-small-label', textContent: '(24h time)' })),
@@ -210,7 +210,7 @@ export class TaskManager extends El {
             ]
         );
 
-        this.#dom_overlay(
+        this.dom_overlay(
             x('div', { className: 'task-close-group' }, [
                 _static, constant, dynamic
             ]),
@@ -224,7 +224,7 @@ export class TaskManager extends El {
     popup_empty_task() {
         const btn = x('div', { className: 'task-create-button task-clearall-button', events: { click: () => { this.clear_all() } }, textContent: 'Yes' });
 
-        this.#dom_overlay(
+        this.dom_overlay(
             x('div', { className: 'task-clearall-wrapper' }, [
                 x('div', { className: 'task-clearall-text', textContent: 'Do you really want to delete all of the tasks?' }),
                 btn
@@ -239,14 +239,14 @@ export class TaskManager extends El {
     clear_all() {
         this.#first_task = undefined;
         this.children = undefined;
-        this.#write_storage();
+        this.write_storage();
     }
 
     /**
      * Generate the DOM for a task.
      * @param {Task} task 
      */
-    #dom_task(task) {
+    dom_task(task) {
         // Terrible solution, but it works!
         const start_time_dom = x('div', { className: 'task-time-start', textContent: task.start_time_string });
         const duration_dom = x('div', { className: 'task-time-duration', textContent: task.duration_string });
@@ -272,7 +272,7 @@ export class TaskManager extends El {
      * @param {HTMLElement} inner_node Inner node html for the overlay.
      * @param {HTMLElement[]} closer_nodes Nodes which trigger closing of overlay, default=undefined.
      */
-    #dom_overlay(inner_node, closer_nodes = undefined) {
+    dom_overlay(inner_node, closer_nodes = undefined) {
         const x_button = x_close_img;
         const overlay = x('div', { className: 'overlay-bg' },
             x('div', { className: 'overlay-wrapper' },
@@ -304,7 +304,7 @@ export class TaskManager extends El {
      * @param {Number} t the old time.
      * @returns {Date}
      */
-    #t_lerp(a, b, c, t) {
+    t_lerp(a, b, c, t) {
         return new Date(
             ((b - c) * t + (c - a) * b) / (b - a)
         );
@@ -316,7 +316,7 @@ export class TaskManager extends El {
      * @param {Block} insert Inserted block.
      * @param {Block} end End block, default=undefined.
      */
-    #insert_between(start, insert, end = undefined) {
+    insert_between(start, insert, end = undefined) {
         end = end || start.next;
 
         insert.previous = start;
@@ -332,7 +332,7 @@ export class TaskManager extends El {
      * @param {Block} block Block to be removed.
      * @return {Block}
      */
-    #pop(block) {
+    pop(block) {
         if (block == this.#first_task) {
             this.#first_task = block.next;
             return block;
@@ -346,7 +346,7 @@ export class TaskManager extends El {
     /**
      * Read the stored list of tasks (if it exists) and modify the 
      */
-    #read_storage() {
+    read_storage() {
         let tasks = localStorage.getItem(READ_WRITE_KEY)
 
         if (tasks) {
@@ -361,7 +361,7 @@ export class TaskManager extends El {
     /**
      * Write the current list of tasks to local storage.
      */
-    #write_storage() {
+    write_storage() {
         let curr_task = this.#first_task;
         const arr = [];
 
