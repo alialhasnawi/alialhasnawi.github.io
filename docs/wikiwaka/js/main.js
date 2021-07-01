@@ -1,4 +1,4 @@
-import { h, clearAll, make } from "../../lib/esrc.js";
+import { h, x } from "../../lib/esrc.js";
 
 const BASE_URL = "https://en.wikipedia.org/w/api.php" + "?origin=*";
 const ARTICLE_URL = "https://en.wikipedia.org/wiki/";
@@ -35,7 +35,7 @@ async function activate_speech() {
 
     let text = await get_article_paragraph();
     
-    const atag = make('a', {
+    const atag = x('a', {
         href: article_url,
         innerText: article_title,
         target: "__blank"

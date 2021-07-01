@@ -12,6 +12,10 @@ selector {
 }
 */
 
+* {
+    box-sizing: border-box !important;
+}
+
 html {
     margin: 0px;
     padding: 0px;
@@ -24,7 +28,7 @@ body {
     margin: 0px;
     padding: 0px;
 
-    overflow: hidden;
+    overflow-x: hidden;
 
     display: flex;
 
@@ -70,12 +74,16 @@ body {
 
 .wiki-select-wrapper {
     width: 60%;
-    height: 100%;
+
+    display: grid;
+    place-items: center;
 }
 
 .wiki-button-wrapper {
     width: 30%;
-    height: 100%;
+
+    display: grid;
+    place-items: center;
 }
 
 #wiki-select, #wiki-button {
@@ -83,14 +91,14 @@ body {
     -webkit-appearance: none;
 
     width: 100%;
-    height: 3em;
+    height: 100%;
 
     border: 2px solid #cecece;
     border-radius: 12px;
 
     box-shadow: 1vw 2vw 3vw #afafaf59;
 
-    font-size: max(3vw, 18px);
+    font-size: max(4vw, 22px);
 }
 
 #wiki-select {
