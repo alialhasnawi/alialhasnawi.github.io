@@ -4,7 +4,7 @@ This is just a test site for learning basic web development and for project show
 
 ##### For the best experience, use a desktop browser.
 
-## Current Projects
+## Recent Projects
 ### **[108bridges](https://alialhasnawi.github.io/108bridges/)** 
 *Ontario bridge data explorer*
 - Backend API runs on a Heroku free-tier dynamo (which is why first load is slow).
@@ -20,7 +20,3 @@ This is just a test site for learning basic web development and for project show
 ### **[Animal Crossing dialogue box.](https://alialhasnawi.github.io/animal/)** 
 *Text-to-Speech based on Animal Crossing villagers*
 - Uses the Web Audio API.
-
-### **[Just a regular piano.](https://alialhasnawi.github.io/piano/)** 
-*nothing interesting, it's just a regular piano*
-- Uses the [Tonejs](https://tonejs.github.io/) framework for note playback.
