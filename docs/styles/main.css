@@ -151,12 +151,12 @@ body {
     margin: 8px;
     padding: 6px;
     border-radius: 16px 6px 16px 6px;
-    border: 3px solid var(--light-colour);
+    border: 3px solid var(--tech-border-colour, var(--light-colour));
     border-width: 0px 1px 3px 0px;
 
-    background-color: #f5f5f5;
+    background-color: var(--tech-bg-colour, #f5f5f5);
 
-    color: var(--dark-colour);
+    color: var(--tech-text-colour, var(--dark-colour));
 }
 
 .tech-inline {
@@ -164,6 +164,28 @@ body {
     margin: 0px;
 
     font-size: 12px;
+}
+
+.tech-img {
+    height: 1.2em;
+    position: relative;
+    top: 0.1em;
+}
+
+a:hover > .tech-tech {
+    box-shadow: #ade5ff49 1px 2px 10px;
+}
+
+.tech-green {
+    --tech-bg-colour: #ddffd3;
+    --tech-border-colour: #a4e78f;
+    --tech-text-colour: #59b83c;
+}
+
+.tech-blue {
+    --tech-bg-colour: #e7fdff;
+    --tech-border-colour: #7ad2da;
+    --tech-text-colour: #2caeb9;
 }
 
 /******* PROJECTS *******/
@@ -257,12 +279,12 @@ body {
 }
 
 a {
-    text-decoration: 3px underline var(--dark-colour);
+    text-decoration: 2px underline var(--dark-colour);
     transition: transform 200ms;
 }
 
 a:hover {
-    transform: translateY(-8px) scale(1.03);
+    transform: scale(1.03);
 }
 
 a:active {
