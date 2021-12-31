@@ -134,6 +134,10 @@ body {
     box-shadow: 2px 4px 8px 2px #e4e4e454;
 }
 
+.tech-socials {
+    flex: 0.3 1 200px;
+}
+
 .tech-title {
     margin-bottom: 12px;
 
