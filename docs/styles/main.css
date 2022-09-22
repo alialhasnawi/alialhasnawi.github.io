@@ -12,6 +12,10 @@ selector {
 }
 */
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --border-colour: #dddddd;
     --light-colour: #c2c2c2;
@@ -26,7 +30,8 @@ html {
     padding: 0px;
 }
 
-body, main {
+body,
+main {
     width: 100vw;
 
     display: flex;
@@ -37,19 +42,26 @@ body, main {
     padding: 0px;
 }
 
+main {
+    padding: 0px 32px 0px 32px;
+}
+
 /******* BANNER *******/
 
 .banner-container {
     width: 100vw;
-    height: 25vh;
     overflow-x: hidden;
+
+    position: relative;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
+    padding: 24px 24px 0px 24px;
+
     border-bottom: var(--border-colour) solid 2px;
-    box-shadow: inset 0px -8px 16px -8px #d6d6d6;
+    box-shadow: inset 0px -16px 16px -8px #d6d6d6;
 }
 
 .banner-title {
@@ -65,7 +77,9 @@ body, main {
     font-family: 'Courier New', Courier, monospace;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     margin: 0px;
     font-weight: normal;
 }
@@ -81,6 +95,9 @@ h1, h2, h3 {
 .banner-flamingo {
     width: 120px;
 
+    position: relative;
+
+    order: 2;
     display: flex;
     flex: 0 1 auto;
 
@@ -97,23 +114,41 @@ h1, h2, h3 {
 }
 
 .banner-flamingo-text {
-    position: absolute;
-    right: 100px;
-    top: calc(25vh - 120px);
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 4vw;
 
-    display: none;
+    order: 1;
+
+    visibility: hidden;
 
     color: #ec73ec;
 }
 
-.banner-flamingo:hover + .banner-flamingo-text {
-    display: block;
+.banner-flamingo:hover+.banner-flamingo-text {
+    visibility: visible;
+}
+
+.banner-grass {
+    opacity: 0.6;
+
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+    order: 3;
+
+    width: 100vw;
+    height: 10%;
+
+    background-image: url("../res/grass.png");
+    background-size: contain;
 }
 
 /******* TECHS *******/
 
 .tech-container {
-    width: 100vw;
+    width: 90vw;
 
     display: flex;
     flex-wrap: wrap;
@@ -136,7 +171,7 @@ h1, h2, h3 {
     border: 1px solid #f7f7f7;
     border-radius: 16px;
 
-    box-shadow: 2px 4px 8px 2px #e4e4e454;
+    box-shadow: 2px 4px 8px 2px #71717154;
 }
 
 .tech-socials {
@@ -151,17 +186,19 @@ h1, h2, h3 {
 }
 
 .tech-collection {
-
     display: flex;
     flex-wrap: wrap;
 }
 
-.tech-tech, .tech-inline {
+.tech-tech,
+.tech-inline {
     margin: 8px;
     padding: 6px;
     border-radius: 16px 6px 16px 6px;
     border: 3px solid var(--tech-border-colour, var(--light-colour));
     border-width: 0px 1px 3px 0px;
+
+    font-size: 16px;
 
     background-color: var(--tech-bg-colour, #f5f5f5);
 
@@ -181,7 +218,7 @@ h1, h2, h3 {
     top: 0.1em;
 }
 
-a:hover > .tech-tech {
+a:hover>.tech-tech {
     box-shadow: #ade5ff49 1px 2px 10px;
 }
 
@@ -199,6 +236,40 @@ a:hover > .tech-tech {
 
 /******* PROJECTS *******/
 
+.projects-title {
+    width: 90vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: min(12vw, 80px);
+}
+
+.projects-title-dance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: min(5vw, 36px);
+    animation: jiggle 2s infinite;
+}
+
+.projects-title-dance:nth-of-type(2) {
+    animation-delay: -0.4s;
+}
+
+.projects-title-dance:hover {
+    cursor: pointer;
+    color: #c2c2c2;
+}
+
+.projects-title-dance:active {
+    animation: jiggle 0.1s infinite, rainbow 3s infinite;
+    color: #12cb0f;
+}
+
 .project-container {
     width: 90vw;
 
@@ -208,6 +279,8 @@ a:hover > .tech-tech {
 
     margin: 16px 0px 24px 0px;
     border-top: 4px solid var(--border-colour);
+
+    animation: fade-in 2s ease-in-out both;
 }
 
 .project-header {
@@ -271,12 +344,66 @@ a:hover > .tech-tech {
     box-shadow: 2px 4px 8px 2px #e4e4e4a8;
 }
 
+.project-img-img {
+    width: 100%;
+    object-fit: cover;
+}
+
 /******* OTHER *******/
+.fade-in {
+    animation: fade-in 1s ease-in-out both;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes jiggle {
+    0% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        color: #e74040;
+    }
+
+    33% {
+        color: #40d4e7;
+    }
+
+    66% {
+        color: #c640e7;
+    }
+
+    100% {
+        color: #e74040;
+    }
+}
+
+
 @font-face {
     font-family: undertale;
     src: url("../piano/res/sans-undertale.ttf");
 }
-  
+
 @font-face {
     font-family: nunito;
     src: url("../animal/res/nunito.ttf");
