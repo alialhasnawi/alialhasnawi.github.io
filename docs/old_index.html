@@ -1,0 +1,260 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Al-Hasnawi</title>
+    <meta name="description" content="Student at UfT CS :) Project showcase: fsmD, 108bridges, watchitiwithme.">
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/svg" href="res/flamingo.png">
+</head>
+
+<!--
+    THANK YOU,
+
+    for deciding to read this website's markup.
+    I hope you have a great day.
+    If you have any questions for me, feel free to contact me,
+    because there's no way that you found this site
+    without first meeting me.
+
+    <3, Ali Al-Hasnawi
+
+    ^~____~^
+    (ō <> ō)    <(a little bird)
+    (_>  <_)
+-->
+
+<body>
+    <header class="banner-container">
+        <div class="banner-title">
+            <h1 class="banner-title-span">hi, I'm Ali</h1>
+            <h2 class="banner-subtitle-span">and I do stuff sometimes...</h2>
+            <h2 class="banner-subtitle-span">(currently a student at UofT)</h2>
+        </div>
+        <img class="banner-flamingo" src="res/flamingo.png" alt="flamingoes">
+        <div class="banner-flamingo-text">we're shy!</div>
+        <!-- <div class="banner-grass"></div> -->
+    </header>
+
+<main>
+    <section class="tech-container fade-in">
+        <div class="tech-section tech-old">
+            <div class="tech-title">stuff I've used</div>
+            <div class="tech-collection">
+                <div class="tech-tech tech-green">python</div>
+                <div class="tech-tech tech-green">javascript</div>
+                <div class="tech-tech tech-blue">nodejs</div>
+                <div class="tech-tech tech-blue">sockets</div>
+                <div class="tech-tech tech-green">css/html</div>
+                <div class="tech-tech tech-green">bash</div>
+                <div class="tech-tech tech-green">java</div>
+                <div class="tech-tech tech-blue">(p)react</div>
+                <div class="tech-tech tech-green">typescript</div>
+                <div class="tech-tech tech-blue">git</div>
+            </div>
+        </div>
+        <div class="tech-section tech-new">
+            <div class="tech-title">stuff I'm learning right now</div>
+            <div class="tech-collection">
+                <div class="tech-tech tech-blue">pandas/matplotlib</div>
+                <div class="tech-tech tech-blue">D3</div>
+                <div class="tech-tech tech-green">C/C++</div>
+                <div class="tech-tech tech-blue">ML</div>
+                <div class="tech-tech tech-green">GLSL</div>
+                <div class="tech-tech tech-blue">neat algorithms</div>
+            </div>
+        </div>
+        <div class="tech-section tech-socials">
+            <div class="tech-title">socials</div>
+            <div class="tech-collection">
+                <a href="https://github.com/alialhasnawi" target="_blank" rel="noopener noreferrer">
+                    <div class="tech-tech"><img class="tech-img" src="res/github-32.png" alt="Github logo"> Github</div>
+                </a>
+                <a href="https://www.linkedin.com/in/ali-al-hasnawi/" target="_blank"
+                    rel="noopener noreferrer">
+                    <div class="tech-tech"><img class="tech-img" src="res/linkedin-32.png" alt="LinkedIn logo"> LinkedIn
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <header class="projects-title">
+        <div class="projects-title-dance">ᕕ(ᐛ)ᕗ</div>
+        projects:
+        <div class="projects-title-dance">ᕕ(ᐛ)ᕗ</div>
+    </header>
+
+    <section class="project-container">
+        <a class="project-header" href="fsmD" target="_blank">
+            <img class="project-icon" src="res/fsmD.svg" alt="icon">
+            <div class="project-title">fsmD</div>
+        </a>
+        <div class="project-content">
+            <div class="project-text">
+                A webapp for drawing, editing, and converting finite
+                state machines.
+                This project is
+                an extension of <a href="http://madebyevan.com/" target="_blank">Evan Wallace's</a> (2010) fsm,
+                from which the core canvas drawing functionality was ported.
+                The codebase was rewritten in <span class="tech-inline">typescript</span>, refactored, and rebuilt using
+                <span class="tech-inline">Preact</span>.
+                New functionality added include: a new UI, file saving and loading, undoing/redoing, FA/DFA/regex conversion,
+                more useful export functions, a dynamic and responsive canvas, and icons.
+            </div>
+            <a class="project-img" href="fsmD">
+                <img class="project-img-img" src="res/fsmDss.png" alt="screenshot">
+            </a>
+        </div>
+    </section>
+
+    <section class="project-container">
+        <a class="project-header" href="108bridges" target="_blank">
+            <img class="project-icon" src="res/108.svg" alt="icon">
+            <div class="project-title">108bridges</div>
+        </a>
+        <div class="project-content">
+            <div class="project-text">
+                A UI for exploring Ontario bridge data.
+                Interfaces with an API written in
+                <span class="tech-inline">python</span>.
+                The interactive map was built using
+                <span class="tech-inline">Leaflet</span>.
+                Can be used to view individual bridge details,
+                (like construction history and specifications),
+                as well as plot a route between bridges in the worst
+                condition. Project was originally developed in a week,
+                for fun!
+                <br><br>
+                <span class="project-sidenote">
+                    API runs on a <span class="tech-inline">Heroku</span>
+                    free tier dynamo, so expect a 30s wait-time on first load.
+                </span><br>
+            </div>
+            <a class="project-img" href="108bridges">
+                <img class="project-img-img" src="res/108ss.png" alt="screenshot">
+            </a>
+        </div>
+    </section>
+
+    <section class="project-container">
+        <a class="project-header" href="tsktask" target="_blank">
+            <img class="project-icon" src="res/tsktask.svg" alt="icon">
+            <div class="project-title">tsktask</div>
+        </a>
+        <div class="project-content">
+            <div class="project-text">
+                A sweet and simple daily planner app
+                for managing and creating tasks.
+                Built using a custom lightweight
+                <span class="tech-inline">framework</span>.
+                Uses the
+                <span class="tech-inline">Web Storage API</span>.
+                Custom components are built using fancy
+                <span class="tech-inline">ES6</span> classes.
+                Made for a friend :) happy birthday!
+
+                <br><br>
+            </div>
+            <a class="project-img" href="tsktask">
+                <img class="project-img-img" src="res/tsktaskss.png" alt="screenshot">
+            </a>
+        </div>
+    </section>
+
+    <section class="project-container">
+        <a class="project-header" href="watch" target="_blank">
+            <img class="project-icon" src="res/watch.svg" alt="icon">
+            <div class="project-title">watchitiwithme</div>
+        </a>
+        <div class="project-content">
+            <div class="project-text">
+                I wanted to watch movies with my friends during quarantine,
+                so I made this. Uses
+                <span class="tech-inline">sockets</span>
+                for the chat (with custom emojis!) and video synchronization.
+                The <span class="tech-inline">nodejs</span> server
+                also has a <span class="tech-inline">puppeteer</span>
+                webscraper for getting video source links. Designed to work
+                only for exposed direct mp4 links. Is also compatible
+                with external <span class="tech-inline">.srt</span> captions.
+                <br><br>
+                <span class="project-sidenote">
+                    Server runs on a <span class="tech-inline">Heroku</span>
+                    free tier dynamo, so expect a 30s wait-time on first load.
+                </span><br>
+            </div>
+            <a class="project-img" href="watch">
+                <img class="project-img-img" src="res/watchss.png" alt="screenshot">
+            </a>
+        </div>
+    </section>
+
+    <section class="project-container">
+        <a class="project-header" href="fromh2o" target="_blank">
+            <img class="project-icon" src="res/fromh2o.svg" alt="icon">
+            <div class="project-title">fromH2O</div>
+        </a>
+        <div class="project-content">
+            <div class="project-text">
+                A nice tool for visualizing large volumes ranging from
+                1 to 10<sup>16</sup> gallons. Uses
+                <span class="tech-inline">threejs</span> for rendering.
+                Super lightweight and lowpoly, and comes with some
+                predefined sizes as well.
+                <br>
+            </div>
+            <a class="project-img" href="fromh2o">
+                <img class="project-img-img" src="res/fromh2oss.png" alt="screenshot">
+            </a>
+        </div>
+    </section>
+    
+    <section class="project-container">
+        <a class="project-header" href="animal" target="_blank">
+            <img class="project-icon" src="res/animal.svg" alt="icon">
+            <div class="project-title">animalese generator</div>
+        </a>
+        <div class="project-content">
+            <div class="project-text">
+                Have you ever wanted to sound like an animal
+                straight out of Animal Crossing™? Text-to-animalese sounds
+                with a cute little dialogue box to boot. Uses the
+                <span class="tech-inline">Web Audio API</span> for
+                audio playback. Also has customizable pitch! and some
+                secrets...
+                <br>
+            </div>
+            
+            <a class="project-img" href="animal">
+                <img class="project-img-img" src="res/animalss.png" alt="screenshot">
+            </a>
+        </div>
+    </section>
+
+    <section class="project-container">
+        <a class="project-header" href="piano" target="_blank">
+            <img class="project-icon" src="res/piano.svg" alt="icon">
+            <div class="project-title">just a regular piano</div>
+        </a>
+        <div class="project-content">
+            <div class="project-text">
+                My first ever web dev project! It's just a simple piano.
+                Press a key, it plays a note. Built with the
+                <span class="tech-inline">tonejs</span> library.
+                Trust me, I promise it's <span class="font-undertale">just a regular piano</span>.
+                ;)
+                <br>
+            </div>
+            <a class="project-img" href="piano">
+                <img class="project-img-img" src="res/pianoss.png" alt="screenshot">
+            </a>
+        </div>
+    </section>
+</main>
+</body>
+
+</html>
